@@ -4,29 +4,26 @@
   <meta charset="utf-8" />
   <title>Darb Path | درب — One Path. Many Cultures. One Language.</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Darb Path | درب — A premium Arabic & cultural immersion journey in Madinah. One Path. Many Cultures. One Language." />
+  <meta name="description" content="Darb Path | درب — A premium Arabic & cultural immersion journey in Madinah." />
   <meta name="theme-color" content="#1a2332" />
 
   <style>
     :root{
+      /* Approved brand */
       --navy:#1a2332;
-      --navy2:#0f172a;
-      --ink:#0b1220;
+      --copper:#c9974d;
       --off:#f8f6f3;
 
-      /* muted copper (classy) */
-      --copper:#b8893e;
-      --copper2:#d2a45a;
-
+      /* Neutrals */
+      --ink:#0f172a;
+      --text: rgba(15,23,42,.88);
+      --muted: rgba(15,23,42,.70);
+      --line: rgba(26,35,50,.12);
       --card:#ffffff;
-      --line:rgba(26,35,50,.12);
-      --shadow: 0 18px 55px rgba(17,24,39,.14);
-      --shadow2: 0 10px 30px rgba(17,24,39,.10);
-
-      --text: rgba(11,18,32,.86);
-      --muted: rgba(11,18,32,.70);
 
       --radius: 22px;
+      --shadow: 0 18px 55px rgba(26,35,50,.14);
+      --shadow2: 0 10px 30px rgba(26,35,50,.10);
     }
 
     *{ box-sizing:border-box; }
@@ -40,122 +37,128 @@
     a{ color:inherit; text-decoration:none; }
     .container{ width:min(1100px, calc(100% - 44px)); margin:0 auto; }
 
-    /* NAV */
-    .nav{
-      position: sticky;
-      top:0;
-      z-index: 50;
-      background: rgba(15,23,42,.55);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid rgba(248,246,243,.10);
-    }
-    .nav-inner{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      padding: 14px 0;
-      color: rgba(248,246,243,.92);
-      gap: 14px;
-    }
-    .nav-brand{
-      display:flex; align-items:center; gap:12px;
-      min-width: 190px;
-    }
-    .nav-brand img{
-      width: 42px; height: 42px; object-fit:contain;
-      border-radius: 12px;
-      background: rgba(248,246,243,.06);
-      border: 1px solid rgba(248,246,243,.10);
-      padding: 6px;
-    }
-    .nav-brand .t{
-      line-height:1.05;
-    }
-    .nav-brand .t b{ display:block; letter-spacing:.2px; }
-    .nav-brand .t span{ font-size:.86em; opacity:.8; }
-
-    .nav-links{
-      display:flex; gap: 16px;
-      align-items:center;
-      justify-content:center;
-      flex-wrap:wrap;
-    }
-    .nav-links a{
-      font-weight:700;
-      opacity:.88;
-      padding: 9px 12px;
-      border-radius: 999px;
-      border: 1px solid transparent;
-      transition: .14s ease;
-    }
-    .nav-links a:hover{
-      opacity:1;
-      background: rgba(248,246,243,.07);
-      border-color: rgba(248,246,243,.10);
-    }
-
-    .nav-cta{
-      display:flex; gap:10px; align-items:center;
-      min-width: 190px;
-      justify-content:flex-end;
-    }
-
-    /* BUTTONS */
+    /* Buttons (brand-only) */
     .btn{
       display:inline-flex;
       align-items:center;
       justify-content:center;
       padding:.92em 1.18em;
       border-radius: 999px;
-      border: 1px solid rgba(184,137,62,.45);
-      background: rgba(248,246,243,.05);
-      color: rgba(248,246,243,.95);
+      border: 1px solid rgba(201,151,77,.55);
+      background: transparent;
+      color: var(--navy);
       font-weight: 800;
       letter-spacing:.2px;
       transition: .14s ease;
       white-space:nowrap;
     }
-    .btn:hover{ transform: translateY(-1px); background: rgba(184,137,62,.12); border-color: rgba(210,164,90,.55); }
+    .btn:hover{
+      transform: translateY(-1px);
+      background: rgba(201,151,77,.10);
+    }
     .btn.primary{
-      color: #0b1220;
-      border: 1px solid rgba(210,164,90,.55);
-      background: linear-gradient(180deg, rgba(210,164,90,.94), rgba(184,137,62,.92));
-      box-shadow: 0 18px 40px rgba(0,0,0,.18);
+      background: var(--copper);
+      color: var(--navy);
+      border-color: rgba(201,151,77,.75);
+      box-shadow: 0 16px 40px rgba(26,35,50,.18);
     }
     .btn.primary:hover{
       filter: brightness(1.03);
-      background: linear-gradient(180deg, rgba(210,164,90,.98), rgba(184,137,62,.98));
+      background: rgba(201,151,77,.92);
     }
     .btn.ghost{
-      border-color: rgba(248,246,243,.18);
-      background: rgba(248,246,243,.04);
+      background: rgba(248,246,243,.10);
+      border-color: rgba(248,246,243,.35);
+      color: var(--off);
+    }
+    .btn.ghost:hover{
+      background: rgba(248,246,243,.16);
     }
 
-    /* HERO */
+    /* NAV (brand navy, not black) */
+    .nav{
+      position: sticky;
+      top:0;
+      z-index: 50;
+      background: rgba(26,35,50,.82);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(248,246,243,.14);
+    }
+    .nav-inner{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding: 14px 0;
+      color: rgba(248,246,243,.95);
+      gap: 14px;
+    }
+    .nav-brand{
+      display:flex; align-items:center; gap:12px;
+      min-width: 200px;
+    }
+    .nav-brand img{
+      width: 42px; height: 42px; object-fit:contain;
+      border-radius: 12px;
+      background: rgba(248,246,243,.08);
+      border: 1px solid rgba(248,246,243,.14);
+      padding: 6px;
+    }
+    .nav-brand .t{ line-height:1.05; }
+    .nav-brand .t b{ display:block; letter-spacing:.2px; }
+    .nav-brand .t span{ font-size:.86em; opacity:.82; }
+
+    .nav-links{
+      display:flex; gap: 10px;
+      align-items:center;
+      justify-content:center;
+      flex-wrap:wrap;
+    }
+    .nav-links a{
+      font-weight:800;
+      opacity:.90;
+      padding: 9px 12px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      transition: .14s ease;
+      color: rgba(248,246,243,.95);
+    }
+    .nav-links a:hover{
+      opacity:1;
+      background: rgba(248,246,243,.10);
+      border-color: rgba(248,246,243,.14);
+    }
+    .nav-cta{
+      display:flex; gap:10px; align-items:center;
+      min-width: 200px;
+      justify-content:flex-end;
+    }
+
+    /* HERO (use brand palette + navy overlay to unify with logo) */
     .hero{
       position:relative;
       min-height: 78vh;
       display:flex;
       align-items:center;
       overflow:hidden;
-      background: linear-gradient(180deg, var(--navy2), var(--navy));
+      background: var(--navy);
       color: var(--off);
     }
     .hero-bg{
       position:absolute; inset:0;
       background: url("images/madinah-hero.jpg") center/cover no-repeat;
-      filter: saturate(.92) contrast(1.06);
       transform: scale(1.03);
       z-index:0;
+      /* make image obey brand */
+      filter: saturate(.80) contrast(1.02) brightness(.90);
     }
     .hero::before{
       content:"";
       position:absolute; inset:0;
-      background:
-        radial-gradient(900px 520px at 18% 18%, rgba(184,137,62,.22), transparent 62%),
-        radial-gradient(900px 520px at 82% 34%, rgba(248,246,243,.12), transparent 66%),
-        linear-gradient(0deg, rgba(11,18,32,.74), rgba(11,18,32,.42));
       z-index:1;
+      /* Brand-only overlays: navy + copper glow */
+      background:
+        radial-gradient(900px 520px at 18% 20%, rgba(201,151,77,.18), transparent 62%),
+        linear-gradient(0deg, rgba(26,35,50,.88), rgba(26,35,50,.62));
       pointer-events:none;
     }
     .hero-inner{
@@ -167,17 +170,20 @@
       height:auto;
       display:block;
       margin: 0 0 1.25em;
-      /* removes “inside a box” feel */
-      filter: drop-shadow(0 14px 30px rgba(0,0,0,.24));
+      /* helps logo stand out without a box */
+      filter:
+        drop-shadow(0 18px 30px rgba(0,0,0,.22))
+        drop-shadow(0 0 18px rgba(248,246,243,.10));
     }
+
     .kicker{
       display:inline-flex;
       align-items:center;
       gap:.75em;
       padding:.58em 1.05em;
       border-radius: 999px;
-      border: 1px solid rgba(248,246,243,.18);
-      background: rgba(248,246,243,.08);
+      border: 1px solid rgba(248,246,243,.22);
+      background: rgba(248,246,243,.10);
       backdrop-filter: blur(8px);
       font-size:.88em;
       letter-spacing:.12em;
@@ -186,19 +192,21 @@
     }
     .kdot{
       width:10px;height:10px;border-radius:999px;
-      background: var(--copper2);
-      box-shadow: 0 0 0 6px rgba(184,137,62,.18);
+      background: var(--copper);
+      box-shadow: 0 0 0 6px rgba(201,151,77,.18);
     }
+
     .hero h1{
       margin: .95em 0 .35em;
       font-size: clamp(2.2em, 3.8vw, 3.35em);
       line-height:1.08;
       letter-spacing:.2px;
+      color: var(--off);
     }
     .hero p{
       max-width: 760px;
       margin: 0 0 1.6em;
-      color: rgba(248,246,243,.90);
+      color: rgba(248,246,243,.92);
       line-height:1.95;
       font-size:1.07em;
     }
@@ -212,16 +220,16 @@
       margin-top: 1.35em;
       display:inline-flex;
       align-items:center;
-      gap:.6em;
-      padding:.6em 1em;
+      gap:.65em;
+      padding:.62em 1.05em;
       border-radius:999px;
-      border:1px solid rgba(184,137,62,.28);
-      background: rgba(184,137,62,.12);
-      color: rgba(248,246,243,.92);
+      border:1px solid rgba(201,151,77,.35);
+      background: rgba(201,151,77,.14);
+      color: rgba(248,246,243,.94);
     }
     .notice b{ color: rgba(248,246,243,.98); }
 
-    /* SECTIONS */
+    /* Sections */
     section{ padding: 4.6em 0; }
     .section-title{
       margin:0 0 .55em;
@@ -272,27 +280,28 @@
       font-size:1.06em;
       letter-spacing:.2px;
     }
-    .feature p{ margin:0; color: rgba(11,18,32,.72); line-height:1.85; }
+    .feature p{ margin:0; color: rgba(15,23,42,.72); line-height:1.85; }
 
+    /* Dark section but still brand navy (NOT black) */
     .dark{
-      background: linear-gradient(180deg, #0f172a, #0b1220);
+      background: linear-gradient(180deg, #223149, var(--navy));
       color: rgba(248,246,243,.92);
     }
     .dark .section-title{ color: var(--off); }
-    .dark .muted{ color: rgba(248,246,243,.78); }
+    .dark .muted{ color: rgba(248,246,243,.80); }
     .dark .feature{
-      background: rgba(248,246,243,.04);
-      border: 1px solid rgba(248,246,243,.10);
+      background: rgba(248,246,243,.06);
+      border: 1px solid rgba(248,246,243,.12);
       box-shadow:none;
     }
     .dark .feature h3{ color: rgba(248,246,243,.96); }
-    .dark .feature p{ color: rgba(248,246,243,.76); }
+    .dark .feature p{ color: rgba(248,246,243,.78); }
 
-    /* CTA BAND */
+    /* CTA band (brand-only) */
     .cta-band{
-      background: linear-gradient(180deg, rgba(184,137,62,.12), rgba(184,137,62,.06));
-      border-top: 1px solid rgba(184,137,62,.18);
-      border-bottom: 1px solid rgba(184,137,62,.18);
+      background: linear-gradient(180deg, rgba(201,151,77,.10), rgba(201,151,77,.04));
+      border-top: 1px solid rgba(201,151,77,.18);
+      border-bottom: 1px solid rgba(201,151,77,.18);
     }
     .cta-inner{
       display:flex;
@@ -308,11 +317,12 @@
       letter-spacing:.2px;
     }
 
-    /* FOOTER + SOCIAL */
+    /* Footer */
     footer{
-      background: var(--navy2);
+      background: var(--navy);
       padding: 3.2em 0 2.8em;
-      color: rgba(248,246,243,.86);
+      color: rgba(248,246,243,.90);
+      border-top: 1px solid rgba(248,246,243,.12);
     }
     .social-grid{
       display:flex;
@@ -330,21 +340,21 @@
       align-items:center;
       justify-content:center;
       border-radius: 16px;
-      background: rgba(248,246,243,.06);
-      border: 1px solid rgba(248,246,243,.14);
+      background: rgba(248,246,243,.08);
+      border: 1px solid rgba(248,246,243,.16);
       color: rgba(248,246,243,.95);
       transition: .14s ease;
     }
     .social-btn:hover{
       transform: translateY(-1px);
-      background: rgba(184,137,62,.16);
-      border-color: rgba(210,164,90,.30);
-      color: var(--copper2);
+      background: rgba(201,151,77,.16);
+      border-color: rgba(201,151,77,.28);
+      color: var(--copper);
     }
     .social-btn svg{ width:22px; height:22px; fill:currentColor; display:block; }
     .copyright{
       text-align:center;
-      opacity:.72;
+      opacity:.78;
       font-size:.95em;
       line-height:1.7;
     }
@@ -358,9 +368,8 @@
       .hero-inner{ text-align:center; }
       .brand-logo{ margin: 0 auto 1.25em; }
       .actions{ justify-content:center; }
-      .nav-brand{ min-width:auto; }
-      .nav-cta{ min-width:auto; }
       .nav-links{ display:none; }
+      .nav-brand, .nav-cta{ min-width:auto; }
     }
   </style>
 </head>
@@ -399,7 +408,7 @@
     <div class="container hero-inner">
       <img class="brand-logo" src="logo.png" alt="Darb Path Logo">
 
-      <div class="kicker"><span class="kdot"></span> Madinah Experience</div>
+      <div class="kicker"><span class="kdot"></span> Darb Path | درب</div>
 
       <h1>One Path. Many Cultures. One Language.</h1>
       <p>
@@ -409,8 +418,8 @@
 
       <ul class="actions">
         <li><a class="btn primary" href="apply.html">Apply to Join</a></li>
-        <li><a class="btn" href="#about">Discover</a></li>
-        <li><a class="btn ghost" href="mailto:Pathdarb@gmail.com">Email</a></li>
+        <li><a class="btn ghost" href="#about">Discover</a></li>
+        <li><a class="btn ghost" href="https://wa.me/13187639149" target="_blank" rel="noopener">WhatsApp</a></li>
       </ul>
 
       <div class="notice">
@@ -501,8 +510,7 @@
 
         <ul class="actions" style="margin-top:1.2em;">
           <li><a class="btn primary" href="apply.html">Apply to Join</a></li>
-          <li><a class="btn" href="mailto:Pathdarb@gmail.com">Email</a></li>
-          <li><a class="btn ghost" href="https://wa.me/13187639149" target="_blank" rel="noopener">WhatsApp</a></li>
+          <li><a class="btn" href="https://wa.me/13187639149" target="_blank" rel="noopener">WhatsApp</a></li>
         </ul>
       </div>
     </div>
@@ -517,12 +525,12 @@
       </div>
       <div style="display:flex; gap:12px; flex-wrap:wrap;">
         <a class="btn primary" href="apply.html">Apply</a>
-        <a class="btn" href="https://www.facebook.com/DARBPATH" target="_blank" rel="noopener">Facebook</a>
+        <a class="btn" href="https://wa.me/13187639149" target="_blank" rel="noopener">WhatsApp</a>
       </div>
     </div>
   </section>
 
-  <!-- FOOTER -->
+  <!-- FOOTER (no email) -->
   <footer id="footer">
     <div class="container">
       <ul class="social-grid">
@@ -571,12 +579,6 @@
         <li>
           <a class="social-btn" href="https://wa.me/13187639149" target="_blank" rel="noopener" aria-label="WhatsApp">
             <svg viewBox="0 0 24 24"><path d="M20 12a8 8 0 0 1-11.9 7l-3.1 1 1-3A8 8 0 1 1 20 12zm-4.6 4.3c.2-.1 1.2-.6 1.4-1.1.2-.5.2-.9.1-1-.1-.1-.2-.2-.5-.3l-1.6-.8c-.3-.1-.5-.1-.7.2l-.6.8c-.2.2-.3.2-.6.1-.3-.1-1.1-.4-2.1-1.3-.8-.7-1.3-1.6-1.4-1.9-.1-.3 0-.5.1-.6l.5-.6c.2-.2.2-.4.1-.6l-.7-1.7c-.2-.5-.4-.4-.6-.4H8.2c-.2 0-.5.1-.7.3-.2.2-.9.9-.9 2.2s.9 2.5 1 2.7c.1.2 1.8 2.8 4.4 3.9.6.3 1.1.4 1.5.5.6.2 1.2.1 1.7 0z"/></svg>
-          </a>
-        </li>
-
-        <li>
-          <a class="social-btn" href="mailto:Pathdarb@gmail.com" aria-label="Email">
-            <svg viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5L4 8V6l8 5 8-5v2z"/></svg>
           </a>
         </li>
       </ul>
