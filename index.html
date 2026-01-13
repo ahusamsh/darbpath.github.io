@@ -4,17 +4,17 @@
   <meta charset="utf-8" />
   <title>Darb Path | درب — One Path. Many Cultures. One Language.</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Darb Path | درب — A premium Arabic & cultural immersion journey. One Path. Many Cultures. One Language." />
+  <meta name="description" content="Darb Path | درب — A premium Arabic & cultural immersion journey in Madinah. One Path. Many Cultures. One Language." />
   <meta name="theme-color" content="#1a2332" />
 
   <style>
     :root{
       --navy:#1a2332;
-      --navy2:#111827;
-      --off:#f8f6f3;
+      --navy2:#0f172a;
       --ink:#0b1220;
+      --off:#f8f6f3;
 
-      /* Copper (more muted, less “shouty”) */
+      /* muted copper (classy) */
       --copper:#b8893e;
       --copper2:#d2a45a;
 
@@ -22,6 +22,11 @@
       --line:rgba(26,35,50,.12);
       --shadow: 0 18px 55px rgba(17,24,39,.14);
       --shadow2: 0 10px 30px rgba(17,24,39,.10);
+
+      --text: rgba(11,18,32,.86);
+      --muted: rgba(11,18,32,.70);
+
+      --radius: 22px;
     }
 
     *{ box-sizing:border-box; }
@@ -30,193 +35,228 @@
       margin:0;
       font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
       background: var(--off);
-      color: rgba(11,18,32,.86);
+      color: var(--text);
     }
+    a{ color:inherit; text-decoration:none; }
+    .container{ width:min(1100px, calc(100% - 44px)); margin:0 auto; }
 
-    a{ color:inherit; }
-    .container{ width:min(1080px, calc(100% - 42px)); margin:0 auto; }
-
-    /* Header / Hero */
-    .hero{
-      position:relative;
-      min-height: 82vh;
+    /* NAV */
+    .nav{
+      position: sticky;
+      top:0;
+      z-index: 50;
+      background: rgba(15,23,42,.55);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(248,246,243,.10);
+    }
+    .nav-inner{
       display:flex;
       align-items:center;
-      overflow:hidden;
-      background: linear-gradient(180deg, var(--navy2), var(--navy));
-      color: var(--off);
+      justify-content:space-between;
+      padding: 14px 0;
+      color: rgba(248,246,243,.92);
+      gap: 14px;
     }
-
-    .hero::before{
-      content:"";
-      position:absolute;
-      inset:0;
-      background:
-        radial-gradient(900px 500px at 20% 15%, rgba(184,137,62,.20), transparent 60%),
-        radial-gradient(900px 500px at 80% 30%, rgba(248,246,243,.12), transparent 65%),
-        linear-gradient(0deg, rgba(17,24,39,.60), rgba(17,24,39,.35));
-      pointer-events:none;
-      z-index:1;
+    .nav-brand{
+      display:flex; align-items:center; gap:12px;
+      min-width: 190px;
     }
-
-    .hero-bg{
-      position:absolute;
-      inset:0;
-      background:
-        url("images/madinah-hero.jpg") center/cover no-repeat;
-      filter: saturate(0.92) contrast(1.05);
-      transform: scale(1.03);
-      z-index:0;
+    .nav-brand img{
+      width: 42px; height: 42px; object-fit:contain;
+      border-radius: 12px;
+      background: rgba(248,246,243,.06);
+      border: 1px solid rgba(248,246,243,.10);
+      padding: 6px;
     }
-
-    .hero-inner{
-      position:relative;
-      z-index:2;
-      padding: 5.5em 0 4.8em;
+    .nav-brand .t{
+      line-height:1.05;
     }
+    .nav-brand .t b{ display:block; letter-spacing:.2px; }
+    .nav-brand .t span{ font-size:.86em; opacity:.8; }
 
-    .brand-logo{
-      width: clamp(240px, 38vw, 420px);
-      height:auto;
-      display:block;
-      margin: 0 0 1.2em 0;
-    }
-
-    .kicker{
-      display:inline-flex;
-      gap:.7em;
+    .nav-links{
+      display:flex; gap: 16px;
       align-items:center;
-      padding:.55em 1em;
-      border-radius:999px;
-      border:1px solid rgba(248,246,243,.18);
-      background: rgba(248,246,243,.08);
-      backdrop-filter: blur(8px);
-      font-size:.9em;
-      letter-spacing:.12em;
-      text-transform:uppercase;
-      opacity:.95;
-    }
-
-    .kdot{
-      width:10px;height:10px;border-radius:999px;
-      background: var(--copper2);
-      box-shadow: 0 0 0 6px rgba(184,137,62,.18);
-    }
-
-    .hero h1{
-      margin: .9em 0 .35em;
-      font-size: clamp(2.2em, 3.6vw, 3.3em);
-      letter-spacing:.2px;
-      line-height:1.1;
-    }
-
-    .hero p{
-      max-width: 720px;
-      margin: 0 0 1.6em;
-      color: rgba(248,246,243,.90);
-      line-height:1.9;
-      font-size:1.06em;
-    }
-
-    .actions{
-      display:flex;
+      justify-content:center;
       flex-wrap:wrap;
-      gap: 12px;
-      margin: 1.7em 0 0;
-      padding:0;
-      list-style:none;
+    }
+    .nav-links a{
+      font-weight:700;
+      opacity:.88;
+      padding: 9px 12px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      transition: .14s ease;
+    }
+    .nav-links a:hover{
+      opacity:1;
+      background: rgba(248,246,243,.07);
+      border-color: rgba(248,246,243,.10);
     }
 
+    .nav-cta{
+      display:flex; gap:10px; align-items:center;
+      min-width: 190px;
+      justify-content:flex-end;
+    }
+
+    /* BUTTONS */
     .btn{
       display:inline-flex;
       align-items:center;
       justify-content:center;
-      padding:.92em 1.25em;
+      padding:.92em 1.18em;
       border-radius: 999px;
-      border: 1px solid rgba(184,137,62,.55);
+      border: 1px solid rgba(184,137,62,.45);
       background: rgba(248,246,243,.05);
       color: rgba(248,246,243,.95);
-      text-decoration:none;
-      font-weight: 700;
+      font-weight: 800;
       letter-spacing:.2px;
       transition: .14s ease;
-      box-shadow: none;
+      white-space:nowrap;
     }
-    .btn:hover{
-      transform: translateY(-1px);
-      background: rgba(184,137,62,.12);
-      border-color: rgba(210,164,90,.55);
-    }
-
-    /* New primary button: copper but muted + classy */
+    .btn:hover{ transform: translateY(-1px); background: rgba(184,137,62,.12); border-color: rgba(210,164,90,.55); }
     .btn.primary{
-      color: var(--navy2);
+      color: #0b1220;
       border: 1px solid rgba(210,164,90,.55);
-      background: linear-gradient(180deg, rgba(210,164,90,.92), rgba(184,137,62,.92));
+      background: linear-gradient(180deg, rgba(210,164,90,.94), rgba(184,137,62,.92));
       box-shadow: 0 18px 40px rgba(0,0,0,.18);
     }
     .btn.primary:hover{
       filter: brightness(1.03);
       background: linear-gradient(180deg, rgba(210,164,90,.98), rgba(184,137,62,.98));
     }
-
     .btn.ghost{
-      border-color: rgba(248,246,243,.20);
+      border-color: rgba(248,246,243,.18);
+      background: rgba(248,246,243,.04);
     }
 
-    /* Sections */
-    section{ padding: 4.6em 0; }
-    .section-title{
-      margin:0 0 .5em;
-      color: var(--ink);
-      font-size: clamp(1.6em, 2.2vw, 2.1em);
+    /* HERO */
+    .hero{
+      position:relative;
+      min-height: 78vh;
+      display:flex;
+      align-items:center;
+      overflow:hidden;
+      background: linear-gradient(180deg, var(--navy2), var(--navy));
+      color: var(--off);
+    }
+    .hero-bg{
+      position:absolute; inset:0;
+      background: url("images/madinah-hero.jpg") center/cover no-repeat;
+      filter: saturate(.92) contrast(1.06);
+      transform: scale(1.03);
+      z-index:0;
+    }
+    .hero::before{
+      content:"";
+      position:absolute; inset:0;
+      background:
+        radial-gradient(900px 520px at 18% 18%, rgba(184,137,62,.22), transparent 62%),
+        radial-gradient(900px 520px at 82% 34%, rgba(248,246,243,.12), transparent 66%),
+        linear-gradient(0deg, rgba(11,18,32,.74), rgba(11,18,32,.42));
+      z-index:1;
+      pointer-events:none;
+    }
+    .hero-inner{
+      position:relative; z-index:2;
+      padding: 5.2em 0 4.2em;
+    }
+    .brand-logo{
+      width: clamp(260px, 40vw, 470px);
+      height:auto;
+      display:block;
+      margin: 0 0 1.25em;
+      /* removes “inside a box” feel */
+      filter: drop-shadow(0 14px 30px rgba(0,0,0,.24));
+    }
+    .kicker{
+      display:inline-flex;
+      align-items:center;
+      gap:.75em;
+      padding:.58em 1.05em;
+      border-radius: 999px;
+      border: 1px solid rgba(248,246,243,.18);
+      background: rgba(248,246,243,.08);
+      backdrop-filter: blur(8px);
+      font-size:.88em;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      opacity:.96;
+    }
+    .kdot{
+      width:10px;height:10px;border-radius:999px;
+      background: var(--copper2);
+      box-shadow: 0 0 0 6px rgba(184,137,62,.18);
+    }
+    .hero h1{
+      margin: .95em 0 .35em;
+      font-size: clamp(2.2em, 3.8vw, 3.35em);
+      line-height:1.08;
       letter-spacing:.2px;
     }
-    .muted{ color: rgba(11,18,32,.70); line-height:1.9; }
-
-    .grid-2{
-      display:grid;
-      grid-template-columns: 1.1fr .9fr;
-      gap: 28px;
-      align-items:center;
+    .hero p{
+      max-width: 760px;
+      margin: 0 0 1.6em;
+      color: rgba(248,246,243,.90);
+      line-height:1.95;
+      font-size:1.07em;
     }
-
-    .card{
-      background: var(--card);
-      border: 1px solid var(--line);
-      border-radius: 22px;
-      box-shadow: var(--shadow2);
-      overflow:hidden;
+    .actions{
+      display:flex; flex-wrap:wrap;
+      gap: 12px;
+      margin: 1.7em 0 0;
+      padding:0; list-style:none;
     }
-
-    .photo{
-      aspect-ratio: 4/3;
-      background: #eaeaea;
-      width:100%;
-      object-fit: cover;
-      display:block;
-    }
-
-    .pill{
+    .notice{
+      margin-top: 1.35em;
       display:inline-flex;
       align-items:center;
       gap:.6em;
-      padding:.55em .95em;
+      padding:.6em 1em;
       border-radius:999px;
       border:1px solid rgba(184,137,62,.28);
-      background: rgba(184,137,62,.10);
-      color: rgba(11,18,32,.82);
-      font-weight: 700;
-      margin-top: 1.2em;
+      background: rgba(184,137,62,.12);
+      color: rgba(248,246,243,.92);
     }
-    .pill b{ color: var(--navy2); }
+    .notice b{ color: rgba(248,246,243,.98); }
 
-    /* Feature cards */
+    /* SECTIONS */
+    section{ padding: 4.6em 0; }
+    .section-title{
+      margin:0 0 .55em;
+      color: var(--ink);
+      font-size: clamp(1.65em, 2.3vw, 2.15em);
+      letter-spacing:.2px;
+    }
+    .muted{ color: var(--muted); line-height:1.95; }
+
+    .grid-2{
+      display:grid;
+      grid-template-columns: 1.08fr .92fr;
+      gap: 28px;
+      align-items:center;
+    }
+    .card{
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow2);
+      overflow:hidden;
+    }
+    .photo{
+      width:100%;
+      display:block;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+      background: #e8e6e1;
+    }
+
     .features{
       display:grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 18px;
-      margin-top: 1.8em;
+      margin-top: 1.9em;
     }
     .feature{
       background: var(--card);
@@ -224,15 +264,16 @@
       border-radius: 20px;
       padding: 1.2em 1.2em 1.25em;
       box-shadow: var(--shadow2);
+      min-height: 148px;
     }
     .feature h3{
       margin:.1em 0 .45em;
       color: var(--ink);
-      font-size:1.08em;
+      font-size:1.06em;
+      letter-spacing:.2px;
     }
     .feature p{ margin:0; color: rgba(11,18,32,.72); line-height:1.85; }
 
-    /* Dark section */
     .dark{
       background: linear-gradient(180deg, #0f172a, #0b1220);
       color: rgba(248,246,243,.92);
@@ -242,12 +283,32 @@
     .dark .feature{
       background: rgba(248,246,243,.04);
       border: 1px solid rgba(248,246,243,.10);
-      box-shadow: none;
+      box-shadow:none;
     }
-    .dark .feature h3{ color: rgba(248,246,243,.95); }
+    .dark .feature h3{ color: rgba(248,246,243,.96); }
     .dark .feature p{ color: rgba(248,246,243,.76); }
 
-    /* Footer / Social */
+    /* CTA BAND */
+    .cta-band{
+      background: linear-gradient(180deg, rgba(184,137,62,.12), rgba(184,137,62,.06));
+      border-top: 1px solid rgba(184,137,62,.18);
+      border-bottom: 1px solid rgba(184,137,62,.18);
+    }
+    .cta-inner{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 18px;
+      padding: 2.25em 0;
+      flex-wrap:wrap;
+    }
+    .cta-inner h3{
+      margin:0;
+      color: var(--ink);
+      letter-spacing:.2px;
+    }
+
+    /* FOOTER + SOCIAL */
     footer{
       background: var(--navy2);
       padding: 3.2em 0 2.8em;
@@ -260,7 +321,7 @@
       gap: 12px;
       list-style:none;
       padding:0;
-      margin: 0 0 1.8em;
+      margin: 0 0 1.6em;
     }
     .social-btn{
       width: 46px;
@@ -273,7 +334,6 @@
       border: 1px solid rgba(248,246,243,.14);
       color: rgba(248,246,243,.95);
       transition: .14s ease;
-      text-decoration:none;
     }
     .social-btn:hover{
       transform: translateY(-1px);
@@ -281,9 +341,7 @@
       border-color: rgba(210,164,90,.30);
       color: var(--copper2);
     }
-    .social-btn svg{
-      width:22px;height:22px;fill:currentColor;display:block;
-    }
+    .social-btn svg{ width:22px; height:22px; fill:currentColor; display:block; }
     .copyright{
       text-align:center;
       opacity:.72;
@@ -292,19 +350,47 @@
     }
 
     /* Responsive */
+    @media (max-width: 980px){
+      .features{ grid-template-columns:1fr; }
+    }
     @media (max-width: 900px){
       .grid-2{ grid-template-columns:1fr; }
-      .brand-logo{ margin: 0 auto 1.2em; }
       .hero-inner{ text-align:center; }
+      .brand-logo{ margin: 0 auto 1.25em; }
       .actions{ justify-content:center; }
-    }
-    @media (max-width: 960px){
-      .features{ grid-template-columns:1fr; }
+      .nav-brand{ min-width:auto; }
+      .nav-cta{ min-width:auto; }
+      .nav-links{ display:none; }
     }
   </style>
 </head>
 
 <body>
+
+  <!-- NAV -->
+  <div class="nav">
+    <div class="container nav-inner">
+      <div class="nav-brand">
+        <img src="logo.png" alt="Darb Path Logo">
+        <div class="t">
+          <b>Darb Path | درب</b>
+          <span>One Path. Many Cultures. One Language.</span>
+        </div>
+      </div>
+
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#program">Program</a>
+        <a href="#footer">Contact</a>
+      </div>
+
+      <div class="nav-cta">
+        <a class="btn ghost" href="https://wa.me/13187639149" target="_blank" rel="noopener">WhatsApp</a>
+        <a class="btn primary" href="apply.html">Apply</a>
+      </div>
+    </div>
+  </div>
 
   <!-- HERO -->
   <header class="hero" id="top">
@@ -313,23 +399,23 @@
     <div class="container hero-inner">
       <img class="brand-logo" src="logo.png" alt="Darb Path Logo">
 
-      <div class="kicker"><span class="kdot"></span> Darb Path | درب</div>
+      <div class="kicker"><span class="kdot"></span> Madinah Experience</div>
 
       <h1>One Path. Many Cultures. One Language.</h1>
       <p>
         A curated Arabic & cultural immersion journey in Madinah —
-        built for small groups, premium quality, and real connection.
+        designed for small groups, premium quality, and meaningful connection.
       </p>
 
       <ul class="actions">
         <li><a class="btn primary" href="apply.html">Apply to Join</a></li>
-        <li><a class="btn" href="https://wa.me/13187639149" target="_blank" rel="noopener">WhatsApp</a></li>
-        <li><a class="btn ghost" href="#about">Discover</a></li>
+        <li><a class="btn" href="#about">Discover</a></li>
+        <li><a class="btn ghost" href="mailto:Pathdarb@gmail.com">Email</a></li>
       </ul>
 
-      <div class="pill" style="justify-content:center;">
-        <span style="width:10px;height:10px;border-radius:999px;background:var(--copper2);display:inline-block;"></span>
-        <b>Upcoming Program:</b> Limited seats — applications reviewed
+      <div class="notice">
+        <span class="kdot" style="box-shadow:none;"></span>
+        <b>Limited seats</b> — applications are reviewed to maintain quality
       </div>
     </div>
   </header>
@@ -341,11 +427,10 @@
         <h2 class="section-title">What is Darb Path?</h2>
         <p class="muted">
           Darb Path is a premium, structured journey that blends Arabic immersion, cultural depth,
-          and meaningful experiences in Madinah. It’s not “tourism” — it’s a guided path with purpose.
+          and purposeful experiences in Madinah. It’s not just sightseeing — it’s a guided path with meaning.
         </p>
         <p class="muted">
-          We keep seats limited to maintain quality. If the first batch fills up,
-          your application stays saved for the next program.
+          We keep seats limited to protect quality. If the first batch is full, your details remain saved for the next program.
         </p>
 
         <div class="features">
@@ -355,7 +440,7 @@
           </div>
           <div class="feature">
             <h3>Cultural Depth</h3>
-            <p>Visits and experiences that reflect identity, history, and place—no filler.</p>
+            <p>Experiences that reflect identity, history, and place—no filler, no noise.</p>
           </div>
           <div class="feature">
             <h3>Premium Flow</h3>
@@ -365,7 +450,7 @@
 
         <ul class="actions" style="margin-top:1.6em;">
           <li><a class="btn primary" href="apply.html">Apply to Join</a></li>
-          <li><a class="btn" href="#program">Upcoming Program</a></li>
+          <li><a class="btn" href="https://wa.me/13187639149" target="_blank" rel="noopener">WhatsApp</a></li>
         </ul>
       </div>
 
@@ -375,25 +460,25 @@
     </div>
   </section>
 
-  <!-- SERVICES (dark) -->
+  <!-- SERVICES -->
   <section class="dark" id="services">
     <div class="container">
       <h2 class="section-title">Services & Experience</h2>
       <p class="muted">
-        A clear program. Limited seats. A premium journey designed for people who want depth and structure.
+        A clear program. Limited seats. A premium journey designed for people who want structure and depth.
       </p>
 
       <div class="features">
         <div class="feature">
-          <h3>Guided Experience</h3>
-          <p>Professional coordination with a smooth flow from start to finish.</p>
+          <h3>Guided Program</h3>
+          <p>Professional coordination with a smooth flow from arrival to completion.</p>
         </div>
         <div class="feature">
           <h3>Curated Places</h3>
-          <p>Handpicked visits that match the identity and story of Madinah.</p>
+          <p>Handpicked visits aligned with Madinah’s story, identity, and atmosphere.</p>
         </div>
         <div class="feature">
-          <h3>Small Group Quality</h3>
+          <h3>Small-Group Quality</h3>
           <p>Limited seats so the experience stays premium, personal, and comfortable.</p>
         </div>
       </div>
@@ -416,14 +501,23 @@
 
         <ul class="actions" style="margin-top:1.2em;">
           <li><a class="btn primary" href="apply.html">Apply to Join</a></li>
-          <li><a class="btn" href="mailto:pathdarb@gmail.com">Email</a></li>
-          <li><a class="btn" href="https://wa.me/13187639149" target="_blank" rel="noopener">WhatsApp</a></li>
+          <li><a class="btn" href="mailto:Pathdarb@gmail.com">Email</a></li>
+          <li><a class="btn ghost" href="https://wa.me/13187639149" target="_blank" rel="noopener">WhatsApp</a></li>
         </ul>
+      </div>
+    </div>
+  </section>
 
-        <div class="pill">
-          <span style="width:10px;height:10px;border-radius:999px;background:var(--copper2);display:inline-block;"></span>
-          Limited seats — applications reviewed
-        </div>
+  <!-- CTA BAND -->
+  <section class="cta-band">
+    <div class="container cta-inner">
+      <div>
+        <h3>Ready to join the next journey?</h3>
+        <div class="muted">Apply now — we review applications to keep the experience premium.</div>
+      </div>
+      <div style="display:flex; gap:12px; flex-wrap:wrap;">
+        <a class="btn primary" href="apply.html">Apply</a>
+        <a class="btn" href="https://www.facebook.com/DARBPATH" target="_blank" rel="noopener">Facebook</a>
       </div>
     </div>
   </section>
@@ -481,7 +575,7 @@
         </li>
 
         <li>
-          <a class="social-btn" href="mailto:pathdarb@gmail.com" aria-label="Email">
+          <a class="social-btn" href="mailto:Pathdarb@gmail.com" aria-label="Email">
             <svg viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5L4 8V6l8 5 8-5v2z"/></svg>
           </a>
         </li>
