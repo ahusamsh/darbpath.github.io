@@ -120,9 +120,7 @@
     .logo-link img {
       width: 50px;
       height: 50px;
-      border-radius: 12px;
-      background: var(--white);
-      padding: 8px;
+      object-fit: contain;
     }
 
     .logo-text b {
@@ -210,43 +208,49 @@
 
     /* Hero */
     .hero {
-      background: linear-gradient(135deg, var(--primary) 0%, #2d3d33 100%);
-      min-height: 70vh;
+      position: relative;
+      min-height: 85vh;
       display: flex;
       align-items: center;
-      position: relative;
       overflow: hidden;
+      background: var(--primary);
       color: var(--white);
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      background: url("images/madinah-hero.jpg") center/cover no-repeat;
+      filter: brightness(.7) contrast(1.05);
     }
 
     .hero::before {
       content: "";
       position: absolute;
       inset: 0;
-      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0L60 30L30 60L0 30z' fill='%23ffffff' fill-opacity='0.03'/%3E%3C/svg%3E");
-      background-size: 60px 60px;
+      z-index: 1;
+      background: linear-gradient(
+        135deg,
+        rgba(61,82,71,.85) 0%,
+        rgba(45,61,51,.75) 50%,
+        rgba(61,82,71,.85) 100%
+      );
     }
 
     .hero-inner {
       position: relative;
       z-index: 2;
       text-align: center;
-      padding: 5em 0;
-    }
-
-    .logo-hero-container {
-      display: inline-block;
-      margin: 0 auto 2em;
-      padding: 2em 2.5em;
-      background: var(--white);
-      border-radius: 16px;
-      box-shadow: 0 8px 24px rgba(0,0,0,.2);
+      padding: 6em 0;
     }
 
     .brand-logo {
-      width: clamp(280px, 40vw, 400px);
+      width: clamp(300px, 45vw, 480px);
       height: auto;
       display: block;
+      margin: 0 auto 2em;
+      filter: drop-shadow(0 4px 12px rgba(0,0,0,.3));
     }
 
     .hero h1 {
@@ -385,14 +389,6 @@
       background: linear-gradient(135deg, var(--primary) 0%, #2d3d33 100%);
       color: var(--white);
       position: relative;
-    }
-
-    .dark-section::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0L60 30L30 60L0 30z' fill='%23ffffff' fill-opacity='0.03'/%3E%3C/svg%3E");
-      background-size: 60px 60px;
     }
 
     .dark-section .section-title {
@@ -644,14 +640,10 @@
       <a href="index.html" class="logo-link">
         <img src="logo.png" alt="شعار درب">
         <div class="logo-text">
-          <b>
-            <span class="lang-ar">درب | Path</span>
-            <span class="lang-en">Path | درب</span>
-          </b>
-          <span>
-            <span class="lang-ar">طريق واحد. ثقافات متعددة. لغة واحدة.</span>
-            <span class="lang-en">One Path. Many Cultures. One Language.</span>
-          </span>
+          <b class="lang-ar">درب | Path</b>
+          <b class="lang-en">Path | درب</b>
+          <span class="lang-ar">طريق واحد. ثقافات متعددة. لغة واحدة.</span>
+          <span class="lang-en">One Path. Many Cultures. One Language.</span>
         </div>
       </a>
 
@@ -677,10 +669,9 @@
   </nav>
 
   <header class="hero">
+    <div class="hero-bg"></div>
     <div class="container hero-inner">
-      <div class="logo-hero-container">
-        <img class="brand-logo" src="logo.png" alt="شعار درب">
-      </div>
+      <img class="brand-logo" src="logo.png" alt="شعار درب">
 
       <h1 class="lang-ar">طريق واحد. ثقافات متعددة. لغة واحدة.</h1>
       <h1 class="lang-en">One Path. Many Cultures. One Language.</h1>
