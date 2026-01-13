@@ -52,10 +52,10 @@
       padding: 0 24px;
     }
 
-    /* Language Toggle */
+    /* Language Toggle - نقله للأسفل */
     .lang-toggle {
       position: fixed;
-      top: 20px;
+      bottom: 20px;
       left: 20px;
       z-index: 100;
       background: var(--primary);
@@ -249,24 +249,16 @@
       width: clamp(300px, 45vw, 480px);
       height: auto;
       display: block;
-      margin: 0 auto 2em;
+      margin: 0 auto 2.5em;
       filter: drop-shadow(0 4px 12px rgba(0,0,0,.3));
     }
 
     .hero h1 {
       font-size: clamp(2em, 4vw, 3.2em);
-      margin: 0.8em 0 0.5em;
+      margin: 0 0 1.2em;
       color: var(--white);
       letter-spacing: .5px;
       line-height: 1.3;
-    }
-
-    .hero p {
-      font-size: 1.15em;
-      max-width: 750px;
-      margin: 0 auto 2em;
-      opacity: .92;
-      line-height: 2;
     }
 
     .actions {
@@ -592,6 +584,11 @@
       .features {
         grid-template-columns: 1fr;
       }
+      
+      .lang-toggle {
+        bottom: 10px;
+        left: 10px;
+      }
     }
 
     @media (max-width: 900px) {
@@ -675,15 +672,6 @@
 
       <h1 class="lang-ar">طريق واحد. ثقافات متعددة. لغة واحدة.</h1>
       <h1 class="lang-en">One Path. Many Cultures. One Language.</h1>
-
-      <p class="lang-ar">
-        رحلة غمر لغوي وثقافي منسّقة بعناية في المدينة المنورة —
-        مصممة للمجموعات الصغيرة بجودة مميزة وتجربة ذات معنى عميق.
-      </p>
-      <p class="lang-en">
-        A curated Arabic & cultural immersion journey in Madinah —
-        designed for small groups, premium quality, and meaningful connection.
-      </p>
 
       <ul class="actions">
         <li><a class="btn primary" href="apply.html">
