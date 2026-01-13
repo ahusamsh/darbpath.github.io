@@ -12,7 +12,817 @@
       --copper:#c9974d;
       --offwhite:#f8f6f3;
     }
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <title>قدّم طلبك | درب | Darb Path</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="قدّم طلبك للانضمام إلى رحلة درب - غمر لغوي وثقافي في المدينة المنورة" />
+  <meta name="theme-color" content="#1a2332" />
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
 
+  <style>
+    :root{
+      /* Brand Colors - من الهوية البصرية */
+      --navy:#1a2332;
+      --copper:#c9974d;
+      --off:#f8f6f3;
+      --sage:#5a6b54;
+      --cream:#e8e6e1;
+
+      /* Neutrals */
+      --ink:#0f172a;
+      --text: rgba(15,23,42,.88);
+      --muted: rgba(15,23,42,.70);
+      --line: rgba(26,35,50,.12);
+      --card:#ffffff;
+
+      --radius: 22px;
+      --shadow: 0 18px 55px rgba(26,35,50,.14);
+      --shadow2: 0 10px 30px rgba(26,35,50,.10);
+    }
+
+    *{ box-sizing:border-box; margin:0; padding:0; }
+    html{ scroll-behavior:smooth; }
+    
+    body{
+      font-family: 'IBM Plex Sans Arabic', 'Segoe UI', Tahoma, sans-serif;
+      background: var(--off);
+      color: var(--text);
+      line-height: 1.7;
+      min-height: 100vh;
+    }
+    
+    h1, h2, h3, .arabic-text {
+      font-family: 'Amiri', 'IBM Plex Sans Arabic', serif;
+      font-weight: 700;
+    }
+    
+    a{ color:inherit; text-decoration:none; }
+    .container{ 
+      width:min(1100px, calc(100% - 44px)); 
+      margin:0 auto; 
+    }
+
+    /* Language Toggle */
+    .lang-toggle {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      z-index: 100;
+      background: rgba(26,35,50,.90);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(248,246,243,.14);
+      border-radius: 12px;
+      padding: 8px;
+      display: flex;
+      gap: 4px;
+    }
+    .lang-toggle button {
+      padding: 8px 16px;
+      border: none;
+      background: transparent;
+      color: rgba(248,246,243,.70);
+      cursor: pointer;
+      border-radius: 8px;
+      font-weight: 600;
+      transition: .2s ease;
+      font-family: 'IBM Plex Sans Arabic', sans-serif;
+    }
+    .lang-toggle button.active {
+      background: var(--copper);
+      color: var(--navy);
+    }
+    .lang-toggle button:hover {
+      color: rgba(248,246,243,.95);
+    }
+
+    /* Content Toggle */
+    [lang="en"] { display: none; }
+    body.en-mode [lang="ar"] { display: none; }
+    body.en-mode [lang="en"] { display: block; }
+    body.en-mode { direction: ltr; }
+
+    /* Header */
+    .header {
+      background: var(--navy);
+      padding: 2em 0;
+      border-bottom: 1px solid rgba(248,246,243,.12);
+      position: relative;
+      overflow: hidden;
+    }
+    .header::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 100%;
+      height: 100%;
+      background: url("pattern.svg") repeat-x;
+      background-size: auto 100%;
+      opacity: 0.06;
+      pointer-events: none;
+    }
+    .header-inner {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .logo-link {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      color: rgba(248,246,243,.95);
+    }
+    .logo-link img {
+      width: 50px;
+      height: 50px;
+      border-radius: 14px;
+      background: rgba(248,246,243,.08);
+      border: 1px solid rgba(248,246,243,.14);
+      padding: 8px;
+    }
+    .logo-text {
+      line-height: 1.2;
+    }
+    .logo-text b {
+      display: block;
+      font-size: 1.2em;
+      letter-spacing: .3px;
+      font-family: 'Amiri', serif;
+    }
+    .logo-text span {
+      font-size: 0.9em;
+      opacity: .80;
+      display: block;
+      margin-top: 3px;
+    }
+    .back-btn {
+      padding: 10px 20px;
+      background: rgba(248,246,243,.10);
+      border: 1px solid rgba(248,246,243,.20);
+      border-radius: 999px;
+      color: rgba(248,246,243,.95);
+      font-weight: 600;
+      transition: .2s ease;
+      font-family: 'IBM Plex Sans Arabic', sans-serif;
+    }
+    .back-btn:hover {
+      background: rgba(248,246,243,.16);
+      transform: translateX(-2px);
+    }
+
+    /* Form Section */
+    .form-section {
+      padding: 4em 0;
+      min-height: calc(100vh - 200px);
+    }
+    .form-container {
+      max-width: 750px;
+      margin: 0 auto;
+    }
+    .form-header {
+      text-align: center;
+      margin-bottom: 3em;
+    }
+    .form-title {
+      font-size: clamp(2em, 3vw, 2.5em);
+      color: var(--navy);
+      margin-bottom: 0.5em;
+      font-family: 'Amiri', serif;
+      letter-spacing: .3px;
+    }
+    .form-subtitle {
+      color: var(--muted);
+      font-size: 1.1em;
+      line-height: 1.9;
+    }
+
+    /* Form Card */
+    .form-card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 2.5em;
+      box-shadow: var(--shadow2);
+      position: relative;
+      overflow: hidden;
+    }
+    .form-card::before {
+      content: "";
+      position: absolute;
+      top: -10px;
+      right: -10px;
+      width: 150px;
+      height: 150px;
+      background: url("pattern.svg") no-repeat;
+      background-size: contain;
+      opacity: 0.04;
+      pointer-events: none;
+    }
+
+    /* Form Groups */
+    .form-group {
+      margin-bottom: 1.8em;
+      position: relative;
+    }
+    .form-label {
+      display: block;
+      margin-bottom: 0.6em;
+      font-weight: 600;
+      color: var(--ink);
+      font-size: 1em;
+    }
+    .form-label .required {
+      color: var(--copper);
+      margin-right: 3px;
+    }
+    .form-input,
+    .form-select,
+    .form-textarea {
+      width: 100%;
+      padding: 0.9em 1.1em;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      font-size: 1em;
+      font-family: 'IBM Plex Sans Arabic', sans-serif;
+      background: var(--card);
+      color: var(--text);
+      transition: .2s ease;
+    }
+    .form-input:focus,
+    .form-select:focus,
+    .form-textarea:focus {
+      outline: none;
+      border-color: var(--copper);
+      box-shadow: 0 0 0 3px rgba(201,151,77,.12);
+    }
+    .form-textarea {
+      min-height: 140px;
+      resize: vertical;
+    }
+    .form-help {
+      display: block;
+      margin-top: 0.5em;
+      font-size: 0.9em;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    /* Radio/Checkbox Groups */
+    .radio-group,
+    .checkbox-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8em;
+    }
+    .radio-label,
+    .checkbox-label {
+      display: flex;
+      align-items: center;
+      gap: 0.7em;
+      cursor: pointer;
+      padding: 0.8em;
+      border-radius: 10px;
+      transition: .2s ease;
+    }
+    .radio-label:hover,
+    .checkbox-label:hover {
+      background: rgba(201,151,77,.05);
+    }
+    .radio-label input,
+    .checkbox-label input {
+      width: 20px;
+      height: 20px;
+      accent-color: var(--copper);
+      cursor: pointer;
+    }
+
+    /* Submit Button */
+    .submit-btn {
+      width: 100%;
+      padding: 1.1em;
+      background: var(--copper);
+      color: var(--navy);
+      border: none;
+      border-radius: 999px;
+      font-size: 1.1em;
+      font-weight: 700;
+      font-family: 'IBM Plex Sans Arabic', sans-serif;
+      cursor: pointer;
+      transition: .2s ease;
+      box-shadow: 0 16px 40px rgba(26,35,50,.18);
+      margin-top: 1.5em;
+    }
+    .submit-btn:hover {
+      transform: translateY(-2px);
+      filter: brightness(1.05);
+      box-shadow: 0 20px 50px rgba(26,35,50,.22);
+    }
+    .submit-btn:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    /* Success Message */
+    .success-message {
+      display: none;
+      text-align: center;
+      padding: 3em 2em;
+    }
+    .success-message.show {
+      display: block;
+    }
+    .success-icon {
+      width: 80px;
+      height: 80px;
+      background: rgba(201,151,77,.15);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.5em;
+    }
+    .success-icon svg {
+      width: 40px;
+      height: 40px;
+      fill: var(--copper);
+    }
+    .success-title {
+      font-size: 1.8em;
+      color: var(--navy);
+      margin-bottom: 0.5em;
+      font-family: 'Amiri', serif;
+    }
+    .success-text {
+      color: var(--muted);
+      line-height: 1.9;
+      margin-bottom: 2em;
+    }
+    .btn-secondary {
+      display: inline-block;
+      padding: 0.9em 1.8em;
+      background: var(--navy);
+      color: var(--off);
+      border-radius: 999px;
+      font-weight: 600;
+      transition: .2s ease;
+    }
+    .btn-secondary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(26,35,50,.25);
+    }
+
+    /* Footer */
+    footer {
+      background: var(--navy);
+      padding: 2.5em 0;
+      color: rgba(248,246,243,.85);
+      border-top: 1px solid rgba(248,246,243,.12);
+      text-align: center;
+    }
+    footer a {
+      color: var(--copper);
+      transition: .2s ease;
+    }
+    footer a:hover {
+      opacity: .8;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .form-card {
+        padding: 1.8em;
+      }
+      .lang-toggle {
+        top: 10px;
+        left: 10px;
+        padding: 6px;
+      }
+      .lang-toggle button {
+        padding: 6px 12px;
+        font-size: 0.9em;
+      }
+      .header-inner {
+        flex-direction: column;
+        text-align: center;
+      }
+      .logo-text span {
+        display: none;
+      }
+    }
+
+    /* RTL Adjustments */
+    body.en-mode .back-btn:hover {
+      transform: translateX(2px);
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Language Toggle -->
+  <div class="lang-toggle">
+    <button onclick="setLang('ar')" class="active" id="lang-ar">العربية</button>
+    <button onclick="setLang('en')" id="lang-en">English</button>
+  </div>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo-link">
+        <img src="logo.png" alt="شعار درب">
+        <div class="logo-text">
+          <b lang="ar">درب | Darb Path</b>
+          <b lang="en">Darb Path | درب</b>
+          <span lang="ar">طريق واحد. ثقافات متعددة. لغة واحدة.</span>
+          <span lang="en">One Path. Many Cultures. One Language.</span>
+        </div>
+      </a>
+      <a href="index.html" class="back-btn">
+        <span lang="ar">← العودة للرئيسية</span>
+        <span lang="en">← Back to Home</span>
+      </a>
+    </div>
+  </header>
+
+  <!-- Form Section -->
+  <section class="form-section">
+    <div class="container">
+      <div class="form-container">
+        
+        <!-- Form Header -->
+        <div class="form-header">
+          <h1 class="form-title" lang="ar">قدّم طلبك للانضمام</h1>
+          <h1 class="form-title" lang="en">Apply to Join</h1>
+          <p class="form-subtitle" lang="ar">
+            املأ النموذج أدناه وسنتواصل معك خلال أسبوع.<br>
+            جميع المعلومات سرية ومحمية.
+          </p>
+          <p class="form-subtitle" lang="en">
+            Fill out the form below and we'll contact you within a week.<br>
+            All information is confidential and secure.
+          </p>
+        </div>
+
+        <!-- Application Form -->
+        <div class="form-card" id="applicationForm">
+          <form id="applyForm" onsubmit="handleSubmit(event)">
+            
+            <!-- Personal Information -->
+            <h3 style="color: var(--navy); margin-bottom: 1.2em; font-family: 'Amiri', serif; font-size: 1.3em;">
+              <span lang="ar">المعلومات الشخصية</span>
+              <span lang="en">Personal Information</span>
+            </h3>
+
+            <div class="form-group">
+              <label class="form-label">
+                <span class="required">*</span>
+                <span lang="ar">الاسم الكامل</span>
+                <span lang="en">Full Name</span>
+              </label>
+              <input type="text" class="form-input" name="fullName" required 
+                     placeholder="أدخل اسمك الكامل / Enter your full name">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">
+                <span class="required">*</span>
+                <span lang="ar">البريد الإلكتروني</span>
+                <span lang="en">Email Address</span>
+              </label>
+              <input type="email" class="form-input" name="email" required 
+                     placeholder="example@email.com">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">
+                <span class="required">*</span>
+                <span lang="ar">رقم الهاتف (مع كود البلد)</span>
+                <span lang="en">Phone Number (with country code)</span>
+              </label>
+              <input type="tel" class="form-input" name="phone" required 
+                     placeholder="+966 xxx xxx xxxx">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">
+                <span class="required">*</span>
+                <span lang="ar">الجنسية</span>
+                <span lang="en">Nationality</span>
+              </label>
+              <input type="text" class="form-input" name="nationality" required 
+                     placeholder="أدخل جنسيتك / Enter your nationality">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">
+                <span class="required">*</span>
+                <span lang="ar">العمر</span>
+                <span lang="en">Age</span>
+              </label>
+              <input type="number" class="form-input" name="age" required min="16" max="100"
+                     placeholder="أدخل عمرك / Enter your age">
+            </div>
+
+            <!-- Arabic Level -->
+            <h3 style="color: var(--navy); margin: 2em 0 1.2em; font-family: 'Amiri', serif; font-size: 1.3em;">
+              <span lang="ar">مستوى اللغة العربية</span>
+              <span lang="en">Arabic Language Level</span>
+            </h3>
+
+            <div class="form-group">
+              <label class="form-label">
+                <span class="required">*</span>
+                <span lang="ar">ما هو مستواك في اللغة العربية؟</span>
+                <span lang="en">What is your Arabic language level?</span>
+              </label>
+              <div class="radio-group">
+                <label class="radio-label">
+                  <input type="radio" name="arabicLevel" value="beginner" required>
+                  <span lang="ar">مبتدئ (لا أعرف العربية أو أعرف القليل جداً)</span>
+                  <span lang="en">Beginner (No Arabic or very little)</span>
+                </label>
+                <label class="radio-label">
+                  <input type="radio" name="arabicLevel" value="elementary">
+                  <span lang="ar">أساسي (أعرف الحروف وبعض الكلمات البسيطة)</span>
+                  <span lang="en">Elementary (Know letters and some simple words)</span>
+                </label>
+                <label class="radio-label">
+                  <input type="radio" name="arabicLevel" value="intermediate">
+                  <span lang="ar">متوسط (أستطيع التحدث والقراءة ببطء)</span>
+                  <span lang="en">Intermediate (Can speak and read slowly)</span>
+                </label>
+                <label class="radio-label">
+                  <input type="radio" name="arabicLevel" value="advanced">
+                  <span lang="ar">متقدم (أتحدث وأقرأ بطلاقة)</span>
+                  <span lang="en">Advanced (Speak and read fluently)</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Motivation -->
+            <h3 style="color: var(--navy); margin: 2em 0 1.2em; font-family: 'Amiri', serif; font-size: 1.3em;">
+              <span lang="ar">الدافع والتوقعات</span>
+              <span lang="en">Motivation & Expectations</span>
+            </h3>
+
+            <div class="form-group">
+              <label class="form-label">
+                <span class="required">*</span>
+                <span lang="ar">لماذا تريد الانضمام إلى درب؟</span>
+                <span lang="en">Why do you want to join Darb Path?</span>
+              </label>
+              <textarea class="form-textarea" name="motivation" required 
+                        placeholder="أخبرنا عن دوافعك وتوقعاتك من البرنامج... / Tell us about your motivation and expectations..."></textarea>
+              <small class="form-help" lang="ar">أخبرنا عن أهدافك وما تأمل تحقيقه من هذه الرحلة</small>
+              <small class="form-help" lang="en">Tell us about your goals and what you hope to achieve from this journey</small>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">
+                <span lang="ar">هل سبق لك زيارة المدينة المنورة؟</span>
+                <span lang="en">Have you visited Madinah before?</span>
+              </label>
+              <div class="radio-group">
+                <label class="radio-label">
+                  <input type="radio" name="visitedMadinah" value="yes">
+                  <span lang="ar">نعم</span>
+                  <span lang="en">Yes</span>
+                </label>
+                <label class="radio-label">
+                  <input type="radio" name="visitedMadinah" value="no">
+                  <span lang="ar">لا</span>
+                  <span lang="en">No</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Additional Information -->
+            <h3 style="color: var(--navy); margin: 2em 0 1.2em; font-family: 'Amiri', serif; font-size: 1.3em;">
+              <span lang="ar">معلومات إضافية</span>
+              <span lang="en">Additional Information</span>
+            </h3>
+
+            <div class="form-group">
+              <label class="form-label">
+                <span lang="ar">متى تفضل الانضمام؟</span>
+                <span lang="en">When would you prefer to join?</span>
+              </label>
+              <select class="form-select" name="preferredTime">
+                <option value="" lang="ar">اختر الوقت المفضل...</option>
+                <option value="" lang="en">Select preferred time...</option>
+                <option value="asap" lang="ar">في أقرب وقت ممكن</option>
+                <option value="asap" lang="en">As soon as possible</option>
+                <option value="1-3months" lang="ar">خلال 1-3 أشهر</option>
+                <option value="1-3months" lang="en">Within 1-3 months</option>
+                <option value="3-6months" lang="ar">خلال 3-6 أشهر</option>
+                <option value="3-6months" lang="en">Within 3-6 months</option>
+                <option value="6+months" lang="ar">بعد 6 أشهر</option>
+                <option value="6+months" lang="en">After 6 months</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">
+                <span lang="ar">كيف سمعت عنا؟</span>
+                <span lang="en">How did you hear about us?</span>
+              </label>
+              <select class="form-select" name="referralSource">
+                <option value="" lang="ar">اختر...</option>
+                <option value="" lang="en">Select...</option>
+                <option value="instagram" lang="ar">إنستغرام</option>
+                <option value="instagram" lang="en">Instagram</option>
+                <option value="facebook" lang="ar">فيسبوك</option>
+                <option value="facebook" lang="en">Facebook</option>
+                <option value="twitter" lang="ar">تويتر / X</option>
+                <option value="twitter" lang="en">Twitter / X</option>
+                <option value="tiktok" lang="ar">تيك توك</option>
+                <option value="tiktok" lang="en">TikTok</option>
+                <option value="youtube" lang="ar">يوتيوب</option>
+                <option value="youtube" lang="en">YouTube</option>
+                <option value="friend" lang="ar">من صديق</option>
+                <option value="friend" lang="en">From a friend</option>
+                <option value="search" lang="ar">بحث جوجل</option>
+                <option value="search" lang="en">Google search</option>
+                <option value="other" lang="ar">أخرى</option>
+                <option value="other" lang="en">Other</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">
+                <span lang="ar">ملاحظات أو أسئلة إضافية</span>
+                <span lang="en">Additional notes or questions</span>
+              </label>
+              <textarea class="form-textarea" name="additionalNotes" 
+                        placeholder="أي معلومات إضافية تود مشاركتها... / Any additional information you'd like to share..."></textarea>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" class="submit-btn">
+              <span lang="ar">إرسال الطلب</span>
+              <span lang="en">Submit Application</span>
+            </button>
+
+            <p style="text-align: center; margin-top: 1.5em; color: var(--muted); font-size: 0.95em;">
+              <span lang="ar">
+                بإرسال هذا النموذج، أنت توافق على 
+                <a href="#" style="color: var(--copper); text-decoration: underline;">شروط الاستخدام</a>
+                و
+                <a href="#" style="color: var(--copper); text-decoration: underline;">سياسة الخصوصية</a>
+              </span>
+              <span lang="en">
+                By submitting this form, you agree to our 
+                <a href="#" style="color: var(--copper); text-decoration: underline;">Terms of Use</a>
+                and
+                <a href="#" style="color: var(--copper); text-decoration: underline;">Privacy Policy</a>
+              </span>
+            </p>
+          </form>
+        </div>
+
+        <!-- Success Message (Hidden by default) -->
+        <div class="success-message" id="successMessage">
+          <div class="success-icon">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M20 6L9 17L4 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h2 class="success-title" lang="ar">شكراً لك! تم استلام طلبك</h2>
+          <h2 class="success-title" lang="en">Thank you! Your application has been received</h2>
+          <p class="success-text" lang="ar">
+            سنراجع طلبك بعناية ونتواصل معك خلال أسبوع عبر البريد الإلكتروني أو الهاتف.<br>
+            تحقق من بريدك الوارد (وصندوق الرسائل غير المرغوبة).
+          </p>
+          <p class="success-text" lang="en">
+            We'll carefully review your application and contact you within a week via email or phone.<br>
+            Please check your inbox (and spam folder).
+          </p>
+          <a href="index.html" class="btn-secondary">
+            <span lang="ar">العودة للرئيسية</span>
+            <span lang="en">Back to Home</span>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p lang="ar">
+        © 2026 درب | Darb Path — طريق واحد. ثقافات متعددة. لغة واحدة.
+      </p>
+      <p lang="en">
+        © 2026 Darb Path | درب — One Path. Many Cultures. One Language.
+      </p>
+      <p style="margin-top: 1em;">
+        <a href="https://wa.me/13187639149" target="_blank">WhatsApp</a> | 
+        <a href="mailto:info@darbpath.com">info@darbpath.com</a>
+      </p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    // Language Toggle
+    function setLang(lang) {
+      const body = document.body;
+      const btnAr = document.getElementById('lang-ar');
+      const btnEn = document.getElementById('lang-en');
+      
+      if (lang === 'en') {
+        body.classList.add('en-mode');
+        body.setAttribute('dir', 'ltr');
+        body.setAttribute('lang', 'en');
+        btnEn.classList.add('active');
+        btnAr.classList.remove('active');
+        localStorage.setItem('lang', 'en');
+      } else {
+        body.classList.remove('en-mode');
+        body.setAttribute('dir', 'rtl');
+        body.setAttribute('lang', 'ar');
+        btnAr.classList.add('active');
+        btnEn.classList.remove('active');
+        localStorage.setItem('lang', 'ar');
+      }
+    }
+
+    // Load saved language preference
+    window.addEventListener('DOMContentLoaded', () => {
+      const savedLang = localStorage.getItem('lang');
+      if (savedLang === 'en') {
+        setLang('en');
+      }
+    });
+
+    // Form Submission Handler
+    function handleSubmit(event) {
+      event.preventDefault();
+      
+      const form = event.target;
+      const submitBtn = form.querySelector('.submit-btn');
+      const formCard = document.getElementById('applicationForm');
+      const successMessage = document.getElementById('successMessage');
+      
+      // Disable submit button
+      submitBtn.disabled = true;
+      submitBtn.textContent = localStorage.getItem('lang') === 'en' ? 'Sending...' : 'جاري الإرسال...';
+      
+      // Collect form data
+      const formData = new FormData(form);
+      const data = {};
+      formData.forEach((value, key) => {
+        data[key] = value;
+      });
+      
+      // Here you would typically send to your backend
+      // For now, we'll simulate a successful submission
+      console.log('Form Data:', data);
+      
+      // Simulate API call
+      setTimeout(() => {
+        // Hide form, show success message
+        formCard.style.display = 'none';
+        successMessage.classList.add('show');
+        
+        // Scroll to top
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        
+        // In production, you would send this to your backend:
+        // fetch('https://your-api.com/applications', {
+        //   method: 'POST',
+        //   headers: { 'Content-Type': 'application/json' },
+        //   body: JSON.stringify(data)
+        // })
+        // .then(response => response.json())
+        // .then(result => {
+        //   formCard.style.display = 'none';
+        //   successMessage.classList.add('show');
+        // })
+        // .catch(error => {
+        //   alert('حدث خطأ. يرجى المحاولة مرة أخرى. / An error occurred. Please try again.');
+        //   submitBtn.disabled = false;
+        //   submitBtn.textContent = localStorage.getItem('lang') === 'en' ? 'Submit Application' : 'إرسال الطلب';
+        // });
+      }, 1500);
+    }
+  </script>
+
+</body>
+</html>
     body{
       margin:0;
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
