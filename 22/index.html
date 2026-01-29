@@ -3,28 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="درب | Path - برنامج غمر لغوي وثقافي في المدينة المنورة. تعلم العربية في مدينة الرسول ﷺ">
-    <meta name="keywords" content="تعلم العربية, المدينة المنورة, غمر لغوي, Arabic immersion, Madinah, learn Arabic">
-    
-    <!-- Open Graph -->
-    <meta property="og:title" content="درب | Path - Arabic Immersion in Madinah">
-    <meta property="og:description" content="برنامج غمر لغوي وثقافي في المدينة المنورة">
-    <meta property="og:image" content="images/og-image.jpg">
-    <meta property="og:url" content="https://www.darbpath.com">
-    
+    <meta name="description" content="درب | Path - برنامج تعليم اللغة العربية في المدينة المنورة">
     <title>درب | Path — طريق واحد. ثقافات متعددة. لغة واحدة.</title>
     
-    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    
-    <!-- AOS Animation -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    
     <link rel="icon" type="image/png" href="logo.png">
     
     <style>
@@ -60,35 +46,10 @@
             font-family: 'Poppins', 'Cairo', sans-serif;
         }
 
-        /* Language Toggle */
-        .lang-toggle {
-            position: fixed;
-            top: 20px;
-            left: 20px;
-            z-index: 1001;
-            display: flex;
-            gap: 5px;
-            background: var(--white);
-            padding: 5px;
-            border-radius: 25px;
-            box-shadow: var(--shadow);
-        }
-
-        .lang-btn {
-            padding: 8px 16px;
-            border: none;
-            background: transparent;
-            cursor: pointer;
-            border-radius: 20px;
-            font-weight: 600;
-            transition: var(--transition);
-            font-size: 14px;
-        }
-
-        .lang-btn.active {
-            background: var(--primary-green);
-            color: var(--white);
-        }
+        .ar-text { display: block; }
+        .en-text { display: none; }
+        body.en .ar-text { display: none; }
+        body.en .en-text { display: block; }
 
         /* Navigation */
         .navbar {
@@ -101,13 +62,8 @@
             align-items: center;
             z-index: 1000;
             transition: var(--transition);
-            background: transparent;
-        }
-
-        .navbar.scrolled {
             background: var(--white);
             box-shadow: var(--shadow);
-            padding: 10px 5%;
         }
 
         .logo {
@@ -127,10 +83,18 @@
             color: var(--primary-green);
         }
 
+        .nav-center {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
         .nav-links {
             display: flex;
-            gap: 30px;
+            gap: 25px;
             list-style: none;
+            margin: 0;
+            padding: 0;
         }
 
         .nav-links a {
@@ -138,31 +102,42 @@
             color: var(--black);
             font-weight: 500;
             transition: var(--transition);
-            position: relative;
+            font-size: 0.95rem;
         }
 
         .nav-links a:hover {
             color: var(--primary-gold);
         }
 
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            right: 0;
-            width: 0;
-            height: 2px;
-            background: var(--primary-gold);
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .lang-toggle {
+            display: flex;
+            gap: 5px;
+            background: var(--beige);
+            padding: 4px;
+            border-radius: 20px;
+        }
+
+        .lang-btn {
+            padding: 6px 14px;
+            border: none;
+            background: transparent;
+            cursor: pointer;
+            border-radius: 16px;
+            font-weight: 600;
             transition: var(--transition);
+            font-size: 13px;
+            color: var(--gray);
         }
 
-        body.en .nav-links a::after {
-            right: auto;
-            left: 0;
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
+        .lang-btn.active {
+            background: var(--primary-green);
+            color: var(--white);
         }
 
         .nav-cta {
@@ -170,14 +145,13 @@
             color: var(--white) !important;
             padding: 10px 25px;
             border-radius: 25px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
         }
 
         .nav-cta:hover {
             background: var(--primary-gold);
-        }
-
-        .nav-cta::after {
-            display: none !important;
         }
 
         .mobile-toggle {
@@ -195,6 +169,7 @@
             justify-content: center;
             position: relative;
             overflow: hidden;
+            padding-top: 80px;
         }
 
         .hero-bg {
@@ -218,7 +193,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, rgba(27,77,62,0.85) 0%, rgba(27,77,62,0.7) 50%, rgba(196,163,90,0.6) 100%);
+            background: linear-gradient(135deg, rgba(27,77,62,0.9) 0%, rgba(27,77,62,0.8) 50%, rgba(196,163,90,0.7) 100%);
         }
 
         .hero-content {
@@ -241,13 +216,13 @@
         }
 
         .hero h1 {
-            font-size: 3.5rem;
+            font-size: 3rem;
             margin-bottom: 20px;
             text-shadow: 2px 2px 10px rgba(0,0,0,0.3);
         }
 
         .hero-subtitle {
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             margin-bottom: 40px;
             opacity: 0.95;
         }
@@ -290,25 +265,6 @@
         .btn-outline:hover {
             background: var(--white);
             color: var(--primary-green);
-        }
-
-        .scroll-indicator {
-            position: absolute;
-            bottom: 30px;
-            left: 50%;
-            transform: translateX(-50%);
-            animation: bounce 2s infinite;
-        }
-
-        .scroll-indicator i {
-            color: var(--white);
-            font-size: 2rem;
-        }
-
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
-            40% { transform: translateX(-50%) translateY(-15px); }
-            60% { transform: translateX(-50%) translateY(-7px); }
         }
 
         /* Section Styles */
@@ -624,6 +580,7 @@
             text-align: center;
             padding: 60px;
             color: rgba(255,255,255,0.7);
+            grid-column: 1 / -1;
         }
 
         .no-programs i {
@@ -681,67 +638,6 @@
         .activity-content p {
             color: var(--gray);
             font-size: 0.9rem;
-        }
-
-        /* Gallery Section */
-        .gallery {
-            padding: 80px 5%;
-            background: var(--white);
-        }
-
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            grid-template-rows: repeat(2, 250px);
-            gap: 15px;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .gallery-item {
-            border-radius: 15px;
-            overflow: hidden;
-            position: relative;
-            cursor: pointer;
-        }
-
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: var(--transition);
-        }
-
-        .gallery-item:hover img {
-            transform: scale(1.1);
-        }
-
-        .gallery-item:first-child {
-            grid-column: span 2;
-            grid-row: span 2;
-        }
-
-        .gallery-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(27,77,62,0.7);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 0;
-            transition: var(--transition);
-        }
-
-        .gallery-item:hover .gallery-overlay {
-            opacity: 1;
-        }
-
-        .gallery-overlay i {
-            color: var(--white);
-            font-size: 2rem;
         }
 
         /* FAQ Section */
@@ -818,7 +714,7 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 40px;
-            max-width: 1000px;
+            max-width: 800px;
             margin: 0 auto;
         }
 
@@ -898,10 +794,6 @@
             color: var(--primary-gold);
         }
 
-        .copyright {
-            font-size: 0.9rem;
-        }
-
         /* Mobile Menu */
         .mobile-menu {
             display: none;
@@ -975,9 +867,30 @@
             right: 20px;
         }
 
+        /* Loading */
+        .loading {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px;
+        }
+
+        .loading-spinner {
+            width: 40px;
+            height: 40px;
+            border: 4px solid var(--beige);
+            border-top-color: var(--primary-gold);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
         /* Responsive */
         @media (max-width: 992px) {
-            .nav-links {
+            .nav-center {
                 display: none;
             }
 
@@ -999,15 +912,6 @@
 
             .about-image {
                 order: -1;
-            }
-
-            .gallery-grid {
-                grid-template-columns: repeat(2, 1fr);
-                grid-template-rows: auto;
-            }
-
-            .gallery-item:first-child {
-                grid-column: span 2;
             }
         }
 
@@ -1032,83 +936,44 @@
                 grid-template-columns: 1fr;
             }
 
-            .gallery-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .gallery-item:first-child {
-                grid-column: span 1;
-            }
-
             .programs-grid {
                 grid-template-columns: 1fr;
             }
-        }
 
-        /* Loading Animation */
-        .loading {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 40px;
-        }
-
-        .loading-spinner {
-            width: 40px;
-            height: 40px;
-            border: 4px solid var(--beige);
-            border-top-color: var(--primary-gold);
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-        }
-
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
-
-        /* Bilingual Text */
-        .ar-text { display: block; }
-        .en-text { display: none; }
-
-        body.en .ar-text { display: none; }
-        body.en .en-text { display: block; }
-
-        .bilingual .ar-text,
-        .bilingual .en-text {
-            display: block;
-        }
-
-        .bilingual .en-text {
-            font-size: 0.9em;
-            opacity: 0.8;
-            margin-top: 5px;
+            .nav-right .nav-cta {
+                display: none;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Language Toggle -->
-    <div class="lang-toggle">
-        <button class="lang-btn active" onclick="setLanguage('ar')">عربي</button>
-        <button class="lang-btn" onclick="setLanguage('en')">EN</button>
-    </div>
-
     <!-- Navigation -->
     <nav class="navbar">
         <a href="index.html" class="logo">
             <img src="logo.png" alt="درب | Path">
             <span class="logo-text">درب | Path</span>
         </a>
-        <ul class="nav-links">
-            <li><a href="#about"><span class="ar-text">عن البرنامج</span><span class="en-text">About</span></a></li>
-            <li><a href="#services"><span class="ar-text">الخدمات</span><span class="en-text">Services</span></a></li>
-            <li><a href="#programs"><span class="ar-text">البرامج</span><span class="en-text">Programs</span></a></li>
-            <li><a href="#activities"><span class="ar-text">الأنشطة</span><span class="en-text">Activities</span></a></li>
-            <li><a href="#faq"><span class="ar-text">الأسئلة</span><span class="en-text">FAQ</span></a></li>
-            <li><a href="#contact"><span class="ar-text">تواصل</span><span class="en-text">Contact</span></a></li>
-            <li><a href="apply.html" class="nav-cta"><span class="ar-text">قدّم الآن</span><span class="en-text">Apply Now</span></a></li>
-        </ul>
-        <div class="mobile-toggle" onclick="toggleMobileMenu()">
-            <i class="fas fa-bars"></i>
+        
+        <div class="nav-center">
+            <ul class="nav-links">
+                <li><a href="#about"><span class="ar-text">عن البرنامج</span><span class="en-text">About</span></a></li>
+                <li><a href="#services"><span class="ar-text">الخدمات</span><span class="en-text">Services</span></a></li>
+                <li><a href="#programs"><span class="ar-text">البرامج</span><span class="en-text">Programs</span></a></li>
+                <li><a href="#activities"><span class="ar-text">الأنشطة</span><span class="en-text">Activities</span></a></li>
+                <li><a href="#faq"><span class="ar-text">الأسئلة</span><span class="en-text">FAQ</span></a></li>
+                <li><a href="#contact"><span class="ar-text">تواصل</span><span class="en-text">Contact</span></a></li>
+            </ul>
+        </div>
+
+        <div class="nav-right">
+            <div class="lang-toggle">
+                <button class="lang-btn active" onclick="setLanguage('ar')">عربي</button>
+                <button class="lang-btn" onclick="setLanguage('en')">EN</button>
+            </div>
+            <a href="apply.html" class="nav-cta"><span class="ar-text">قدّم الآن</span><span class="en-text">Apply</span></a>
+            <div class="mobile-toggle" onclick="toggleMobileMenu()">
+                <i class="fas fa-bars"></i>
+            </div>
         </div>
     </nav>
 
@@ -1125,7 +990,7 @@
             <li><a href="#activities" onclick="toggleMobileMenu()"><span class="ar-text">الأنشطة</span><span class="en-text">Activities</span></a></li>
             <li><a href="#faq" onclick="toggleMobileMenu()"><span class="ar-text">الأسئلة</span><span class="en-text">FAQ</span></a></li>
             <li><a href="#contact" onclick="toggleMobileMenu()"><span class="ar-text">تواصل</span><span class="en-text">Contact</span></a></li>
-            <li><a href="apply.html" class="nav-cta" style="display: inline-block; margin-top: 20px;"><span class="ar-text">قدّم الآن</span><span class="en-text">Apply Now</span></a></li>
+            <li><a href="apply.html" class="nav-cta" style="display: inline-block; margin-top: 20px;"><span class="ar-text">قدّم الآن</span><span class="en-text">Apply</span></a></li>
         </ul>
     </div>
 
@@ -1142,8 +1007,8 @@
                 <span class="en-text">One Path. Many Cultures. One Language.</span>
             </h1>
             <p class="hero-subtitle">
-                <span class="ar-text">برنامج غمر لغوي وثقافي في المدينة المنورة</span>
-                <span class="en-text">Arabic & Cultural Immersion Program in Madinah</span>
+                <span class="ar-text">برنامج تعليم اللغة العربية في المدينة المنورة</span>
+                <span class="en-text">Arabic Language Program in Madinah</span>
             </p>
             <div class="hero-buttons">
                 <a href="apply.html" class="btn btn-primary">
@@ -1162,9 +1027,6 @@
                     <span class="en-text">WhatsApp</span>
                 </a>
             </div>
-        </div>
-        <div class="scroll-indicator">
-            <i class="fas fa-chevron-down"></i>
         </div>
     </section>
 
@@ -1190,16 +1052,16 @@
                     <span class="en-text">Learn Arabic in the Prophet's City ﷺ</span>
                 </h2>
                 <p class="ar-text">
-                    درب هو برنامج متكامل يجمع بين تعلم اللغة العربية والغمر الثقافي في المدينة المنورة. نوفر لك تجربة فريدة تجمع بين الدراسة الأكاديمية والتجارب الروحانية والأنشطة الثقافية.
+                    درب هو برنامج متكامل يجمع بين تعلم اللغة العربية والتجارب الثقافية في المدينة المنورة. نوفر لك تجربة فريدة تجمع بين الدراسة الأكاديمية والتجارب الروحانية والأنشطة المتنوعة.
                 </p>
                 <p class="en-text">
-                    Path is a comprehensive program that combines Arabic language learning with cultural immersion in Madinah. We provide a unique experience that blends academic study, spiritual experiences, and cultural activities.
+                    Path is a comprehensive program that combines Arabic language learning with cultural experiences in Madinah. We provide a unique experience that blends academic study, spiritual experiences, and various activities.
                 </p>
                 <p class="ar-text">
-                    نتولى كل التفاصيل: السكن المريح، الوجبات اليومية، التنقلات، والأنشطة المتنوعة. كل ما عليك هو التركيز على التعلم والاستمتاع بالتجربة.
+                    نتولى كل التفاصيل: السكن المريح، الوجبات، التنقلات، والأنشطة المتنوعة. كل ما عليك هو التركيز على التعلم والاستمتاع بالتجربة.
                 </p>
                 <p class="en-text">
-                    We handle all the details: comfortable accommodation, daily meals, transportation, and various activities. All you need to do is focus on learning and enjoying the experience.
+                    We handle all the details: comfortable accommodation, meals, transportation, and various activities. All you need to do is focus on learning and enjoying the experience.
                 </p>
                 <div class="about-features">
                     <div class="about-feature">
@@ -1209,13 +1071,13 @@
                     </div>
                     <div class="about-feature">
                         <i class="fas fa-utensils"></i>
-                        <span class="ar-text">وجبتان يومياً</span>
-                        <span class="en-text">Two Daily Meals</span>
+                        <span class="ar-text">وجبات متنوعة</span>
+                        <span class="en-text">Varied Meals</span>
                     </div>
                     <div class="about-feature">
                         <i class="fas fa-car"></i>
-                        <span class="ar-text">نقل وتنقلات</span>
-                        <span class="en-text">Transportation</span>
+                        <span class="ar-text">مواصلات مريحة</span>
+                        <span class="en-text">Comfortable Transport</span>
                     </div>
                     <div class="about-feature">
                         <i class="fas fa-calendar-alt"></i>
@@ -1244,10 +1106,7 @@
             </p>
         </div>
         <div class="services-grid" id="services-container">
-            <!-- Services will be loaded dynamically -->
-            <div class="loading">
-                <div class="loading-spinner"></div>
-            </div>
+            <div class="loading"><div class="loading-spinner"></div></div>
         </div>
     </section>
 
@@ -1263,15 +1122,12 @@
                 <span class="en-text">Join Our Next Journey</span>
             </h2>
             <p class="section-desc">
-                <span class="ar-text">المقاعد محدودة للحفاظ على جودة التجربة</span>
+                <span class="ar-text">عدد محدود من المقاعد للحفاظ على جودة التجربة</span>
                 <span class="en-text">Limited seats to maintain experience quality</span>
             </p>
         </div>
         <div class="programs-grid" id="programs-container">
-            <!-- Programs will be loaded dynamically -->
-            <div class="loading">
-                <div class="loading-spinner"></div>
-            </div>
+            <div class="loading"><div class="loading-spinner"></div></div>
         </div>
     </section>
 
@@ -1288,46 +1144,7 @@
             </h2>
         </div>
         <div class="activities-grid" id="activities-container">
-            <!-- Activities will be loaded dynamically -->
-            <div class="loading">
-                <div class="loading-spinner"></div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Gallery Section -->
-    <section class="gallery">
-        <div class="section-header" data-aos="fade-up">
-            <p class="section-subtitle">
-                <span class="ar-text">من أرشيفنا</span>
-                <span class="en-text">From Our Archive</span>
-            </p>
-            <h2 class="section-title">
-                <span class="ar-text">لمحات من رحلاتنا</span>
-                <span class="en-text">Glimpses from Our Journeys</span>
-            </h2>
-        </div>
-        <div class="gallery-grid">
-            <div class="gallery-item" data-aos="fade-up">
-                <img src="images/gallery-1.jpg" alt="المسجد النبوي">
-                <div class="gallery-overlay"><i class="fas fa-expand"></i></div>
-            </div>
-            <div class="gallery-item" data-aos="fade-up" data-aos-delay="100">
-                <img src="images/gallery-2.jpg" alt="جولة سيرة">
-                <div class="gallery-overlay"><i class="fas fa-expand"></i></div>
-            </div>
-            <div class="gallery-item" data-aos="fade-up" data-aos-delay="200">
-                <img src="images/gallery-3.jpg" alt="نشاط ثقافي">
-                <div class="gallery-overlay"><i class="fas fa-expand"></i></div>
-            </div>
-            <div class="gallery-item" data-aos="fade-up" data-aos-delay="300">
-                <img src="images/gallery-4.jpg" alt="رحلة صحراوية">
-                <div class="gallery-overlay"><i class="fas fa-expand"></i></div>
-            </div>
-            <div class="gallery-item" data-aos="fade-up" data-aos-delay="400">
-                <img src="images/gallery-5.jpg" alt="تعلم العربية">
-                <div class="gallery-overlay"><i class="fas fa-expand"></i></div>
-            </div>
+            <div class="loading"><div class="loading-spinner"></div></div>
         </div>
     </section>
 
@@ -1352,8 +1169,8 @@
                 </div>
                 <div class="faq-answer">
                     <div class="faq-answer-content">
-                        <span class="ar-text">البرنامج مفتوح لجميع المسلمين من عمر 18 سنة فما فوق، من أي جنسية. لا يشترط معرفة مسبقة بالعربية.</span>
-                        <span class="en-text">The program is open to all Muslims aged 18 and above, from any nationality. No prior Arabic knowledge is required.</span>
+                        <span class="ar-text">البرنامج مفتوح لجميع المسلمين من أي جنسية. لا يشترط معرفة مسبقة بالعربية.</span>
+                        <span class="en-text">The program is open to all Muslims from any nationality. No prior Arabic knowledge is required.</span>
                     </div>
                 </div>
             </div>
@@ -1365,8 +1182,8 @@
                 </div>
                 <div class="faq-answer">
                     <div class="faq-answer-content">
-                        <span class="ar-text">يشمل السعر: السكن المشترك، وجبتان يومياً (فطور وعشاء)، النقل من وإلى المطار، التنقلات اليومية، والأنشطة الأسبوعية. لا يشمل: رسوم المعهد، تذاكر الطيران، التأشيرة.</span>
-                        <span class="en-text">Price includes: shared accommodation, two daily meals (breakfast & dinner), airport transfers, daily transportation, and weekly activities. Not included: institute fees, flights, visa.</span>
+                        <span class="ar-text">يشمل السعر: السكن المشترك، الوجبات، الاستقبال من المطار، المواصلات اليومية، والأنشطة الأسبوعية. لا يشمل: رسوم المعهد، تذاكر الطيران، التأشيرة.</span>
+                        <span class="en-text">Price includes: shared accommodation, meals, airport pickup, daily transportation, and weekly activities. Not included: institute fees, flights, visa.</span>
                     </div>
                 </div>
             </div>
@@ -1380,19 +1197,6 @@
                     <div class="faq-answer-content">
                         <span class="ar-text">يمكنك الحصول على تأشيرة سياحية إلكترونية من موقع visa.visitsaudi.com. التأشيرة صالحة لمدة سنة وتسمح بالإقامة حتى 90 يوماً.</span>
                         <span class="en-text">You can obtain an e-visa from visa.visitsaudi.com. The visa is valid for one year and allows stays up to 90 days.</span>
-                    </div>
-                </div>
-            </div>
-            <div class="faq-item">
-                <div class="faq-question" onclick="toggleFaq(this)">
-                    <span class="ar-text">ما هي سياسة الإلغاء؟</span>
-                    <span class="en-text">What's the cancellation policy?</span>
-                    <i class="fas fa-chevron-down"></i>
-                </div>
-                <div class="faq-answer">
-                    <div class="faq-answer-content">
-                        <span class="ar-text">قبل 30 يوماً: استرداد 70%. قبل 15 يوماً: استرداد 50%. أقل من 15 يوماً: لا يوجد استرداد. راجع صفحة الشروط والأحكام للتفاصيل.</span>
-                        <span class="en-text">30+ days before: 70% refund. 15-30 days: 50% refund. Less than 15 days: no refund. See Terms & Conditions for details.</span>
                     </div>
                 </div>
             </div>
@@ -1435,20 +1239,12 @@
                 <h4><span class="ar-text">البريد الإلكتروني</span><span class="en-text">Email</span></h4>
                 <a href="mailto:info@darbpath.com">info@darbpath.com</a>
             </div>
-            <div class="contact-item">
-                <i class="fas fa-map-marker-alt"></i>
-                <h4><span class="ar-text">الموقع</span><span class="en-text">Location</span></h4>
-                <span class="ar-text">المدينة المنورة، السعودية</span>
-                <span class="en-text">Madinah, Saudi Arabia</span>
-            </div>
         </div>
         <div class="social-links" data-aos="fade-up">
             <a href="https://instagram.com/darbpath" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
             <a href="https://twitter.com/darbpath" target="_blank" title="Twitter"><i class="fab fa-x-twitter"></i></a>
             <a href="https://tiktok.com/@darbpath" target="_blank" title="TikTok"><i class="fab fa-tiktok"></i></a>
             <a href="https://youtube.com/@darbpath" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
-            <a href="https://snapchat.com/add/darbpath" target="_blank" title="Snapchat"><i class="fab fa-snapchat"></i></a>
-            <a href="https://facebook.com/darbpath" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
         </div>
     </section>
 
@@ -1456,7 +1252,6 @@
     <footer>
         <div class="footer-links">
             <a href="terms.html"><span class="ar-text">الشروط والأحكام</span><span class="en-text">Terms & Conditions</span></a>
-            <a href="privacy.html"><span class="ar-text">سياسة الخصوصية</span><span class="en-text">Privacy Policy</span></a>
             <a href="apply.html"><span class="ar-text">قدّم الآن</span><span class="en-text">Apply Now</span></a>
         </div>
         <p class="copyright">
@@ -1467,37 +1262,9 @@
     <!-- Scripts -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        // ==========================================
-        // Google Sheets API Configuration
-        // ==========================================
-        // ⚠️ استبدل هذا الرابط برابط Google Apps Script الخاص بك
+        // Google Sheets API
         const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzFQz9BpuFuxPqjL4I07SCM0uZ7O0chhe3yMTLgmiMiJxOAONpAzVeDalocjgzz74Ye/exec';
         
-        // جلب البيانات من Google Sheets أو من ملفات JSON المحلية كبديل
-        async function fetchData(sheetName) {
-            // إذا كان رابط Google Script موجود
-            if (GOOGLE_SCRIPT_URL && GOOGLE_SCRIPT_URL !== 'YOUR_GOOGLE_SCRIPT_URL_HERE') {
-                try {
-                    const response = await fetch(`${GOOGLE_SCRIPT_URL}?sheet=${sheetName}`);
-                    const data = await response.json();
-                    if (!data.error) {
-                        return data;
-                    }
-                } catch (error) {
-                    console.log(`Google Sheets unavailable for ${sheetName}, using local JSON`);
-                }
-            }
-            
-            // البديل: جلب من ملفات JSON المحلية
-            try {
-                const response = await fetch(`data/${sheetName}.json`);
-                return await response.json();
-            } catch (error) {
-                console.error(`Error loading ${sheetName}:`, error);
-                return [];
-            }
-        }
-
         // Initialize AOS
         AOS.init({
             duration: 800,
@@ -1525,23 +1292,10 @@
             localStorage.setItem('path-lang', lang);
         }
 
-        // Load saved language
         const savedLang = localStorage.getItem('path-lang');
-        if (savedLang) {
-            setLanguage(savedLang);
-        }
+        if (savedLang) setLanguage(savedLang);
 
-        // Navbar scroll effect
-        window.addEventListener('scroll', function() {
-            const navbar = document.querySelector('.navbar');
-            if (window.scrollY > 50) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-        });
-
-        // Mobile menu toggle
+        // Mobile menu
         function toggleMobileMenu() {
             document.querySelector('.mobile-menu').classList.toggle('active');
             document.querySelector('.mobile-overlay').classList.toggle('active');
@@ -1551,250 +1305,135 @@
         function toggleFaq(element) {
             const parent = element.parentElement;
             const isActive = parent.classList.contains('active');
-            
-            // Close all
-            document.querySelectorAll('.faq-item').forEach(item => {
-                item.classList.remove('active');
-            });
-            
-            // Open clicked if wasn't active
-            if (!isActive) {
-                parent.classList.add('active');
+            document.querySelectorAll('.faq-item').forEach(item => item.classList.remove('active'));
+            if (!isActive) parent.classList.add('active');
+        }
+
+        // Fetch data from Google Sheets
+        async function fetchData(sheetName) {
+            try {
+                const response = await fetch(`${GOOGLE_SCRIPT_URL}?sheet=${sheetName}`);
+                const data = await response.json();
+                if (!data.error) return data;
+            } catch (error) {
+                console.log(`Error loading ${sheetName}:`, error);
             }
+            return [];
         }
 
         // Load Services
         async function loadServices() {
-            try {
-                const services = await fetchData('services');
-                const container = document.getElementById('services-container');
-                
-                const visibleServices = services.filter(s => s.visible);
-                
-                if (visibleServices.length === 0) {
-                    container.innerHTML = '<p style="text-align: center; color: var(--gray);">لا توجد خدمات متاحة حالياً</p>';
-                    return;
-                }
-                
-                container.innerHTML = visibleServices.map(service => `
-                    <div class="service-card" data-aos="fade-up">
-                        <div class="service-icon">
-                            <i class="${service.icon}"></i>
-                        </div>
-                        <h3>
-                            <span class="ar-text">${service.title_ar}</span>
-                            <span class="en-text">${service.title_en}</span>
-                        </h3>
-                        <p>
-                            <span class="ar-text">${service.desc_ar}</span>
-                            <span class="en-text">${service.desc_en}</span>
-                        </p>
-                    </div>
-                `).join('');
-                
-                AOS.refresh();
-            } catch (error) {
-                console.error('Error loading services:', error);
-                loadDefaultServices();
+            const services = await fetchData('services');
+            const container = document.getElementById('services-container');
+            const visibleServices = services.filter(s => s.visible);
+            
+            if (visibleServices.length === 0) {
+                container.innerHTML = '<p style="text-align: center; color: var(--gray);">جاري تحميل الخدمات...</p>';
+                return;
             }
-        }
-        
-        function loadDefaultServices() {
-            document.getElementById('services-container').innerHTML = `
-                    <div class="service-card" data-aos="fade-up">
-                        <div class="service-icon"><i class="fas fa-home"></i></div>
-                        <h3><span class="ar-text">السكن</span><span class="en-text">Accommodation</span></h3>
-                        <p><span class="ar-text">سكن مريح قريب من المسجد النبوي</span><span class="en-text">Comfortable accommodation near the Prophet's Mosque</span></p>
+            
+            container.innerHTML = visibleServices.map(service => `
+                <div class="service-card" data-aos="fade-up">
+                    <div class="service-icon">
+                        <i class="${service.icon}"></i>
                     </div>
-                    <div class="service-card" data-aos="fade-up">
-                        <div class="service-icon"><i class="fas fa-utensils"></i></div>
-                        <h3><span class="ar-text">الإعاشة</span><span class="en-text">Meals</span></h3>
-                        <p><span class="ar-text">وجبتان يومياً (فطور وعشاء)</span><span class="en-text">Two daily meals (breakfast & dinner)</span></p>
-                    </div>
-                    <div class="service-card" data-aos="fade-up">
-                        <div class="service-icon"><i class="fas fa-car"></i></div>
-                        <h3><span class="ar-text">النقل</span><span class="en-text">Transportation</span></h3>
-                        <p><span class="ar-text">نقل من المطار وتنقلات يومية</span><span class="en-text">Airport transfers and daily transportation</span></p>
-                    </div>
-                    <div class="service-card" data-aos="fade-up">
-                        <div class="service-icon"><i class="fas fa-calendar-check"></i></div>
-                        <h3><span class="ar-text">الأنشطة</span><span class="en-text">Activities</span></h3>
-                        <p><span class="ar-text">برامج وأنشطة متنوعة أسبوعياً</span><span class="en-text">Various weekly programs and activities</span></p>
-                    </div>
-                    <div class="service-card" data-aos="fade-up">
-                        <div class="service-icon"><i class="fas fa-headset"></i></div>
-                        <h3><span class="ar-text">الدعم</span><span class="en-text">Support</span></h3>
-                        <p><span class="ar-text">دعم ومتابعة على مدار الساعة</span><span class="en-text">24/7 support and follow-up</span></p>
-                    </div>
-                    <div class="service-card" data-aos="fade-up">
-                        <div class="service-icon"><i class="fas fa-language"></i></div>
-                        <h3><span class="ar-text">التنسيق اللغوي</span><span class="en-text">Language Coordination</span></h3>
-                        <p><span class="ar-text">تنسيق مع معاهد اللغة العربية</span><span class="en-text">Coordination with Arabic institutes</span></p>
-                    </div>
-                `;
+                    <h3>
+                        <span class="ar-text">${service.title_ar}</span>
+                        <span class="en-text">${service.title_en}</span>
+                    </h3>
+                    <p>
+                        <span class="ar-text">${service.desc_ar}</span>
+                        <span class="en-text">${service.desc_en}</span>
+                    </p>
+                </div>
+            `).join('');
+            
+            AOS.refresh();
         }
 
         // Load Programs
         async function loadPrograms() {
-            try {
-                const programs = await fetchData('programs');
-                const container = document.getElementById('programs-container');
-                
-                const visiblePrograms = programs.filter(p => p.visible);
-                
-                if (visiblePrograms.length === 0) {
-                    container.innerHTML = `
-                        <div class="no-programs">
-                            <i class="fas fa-calendar-xmark"></i>
-                            <h3><span class="ar-text">لا توجد برامج متاحة حالياً</span><span class="en-text">No programs available currently</span></h3>
-                            <p><span class="ar-text">تابعنا للإعلان عن البرامج القادمة</span><span class="en-text">Follow us for upcoming program announcements</span></p>
-                        </div>
-                    `;
-                    return;
-                }
-                
-                container.innerHTML = visiblePrograms.map(program => `
-                    <div class="program-card" data-aos="fade-up">
-                        <div class="program-image">
-                            <img src="${program.image}" alt="${program.title_ar}" onerror="this.src='images/program-default.jpg'">
-                            <span class="program-badge ${program.registration_open ? '' : 'closed'}">
-                                <span class="ar-text">${program.registration_open ? 'التسجيل مفتوح' : 'التسجيل مغلق'}</span>
-                                <span class="en-text">${program.registration_open ? 'Registration Open' : 'Registration Closed'}</span>
-                            </span>
-                        </div>
-                        <div class="program-content">
-                            <h3>
-                                <span class="ar-text">${program.title_ar}</span>
-                                <span class="en-text">${program.title_en}</span>
-                            </h3>
-                            <div class="program-meta">
-                                <span><i class="fas fa-calendar"></i> ${program.start_date} - ${program.end_date}</span>
-                                <span><i class="fas fa-clock"></i> <span class="ar-text">${program.duration_ar}</span><span class="en-text">${program.duration_en}</span></span>
-                                <span><i class="fas fa-users"></i> <span class="ar-text">${program.spots_left} مقعد متبقي</span><span class="en-text">${program.spots_left} spots left</span></span>
-                            </div>
-                            <div class="program-price">
-                                $${Number(program.price).toLocaleString()} <span>/ <span class="ar-text">أسبوعياً</span><span class="en-text">weekly</span></span>
-                            </div>
-                            <button class="program-btn" ${program.registration_open ? `onclick="location.href='apply.html?program=${program.id}'"` : 'disabled'}>
-                                <span class="ar-text">${program.registration_open ? 'سجّل الآن' : 'التسجيل مغلق'}</span>
-                                <span class="en-text">${program.registration_open ? 'Register Now' : 'Registration Closed'}</span>
-                            </button>
-                        </div>
-                    </div>
-                `).join('');
-                
-                AOS.refresh();
-            } catch (error) {
-                console.error('Error loading programs:', error);
-                document.getElementById('programs-container').innerHTML = `
+            const programs = await fetchData('programs');
+            const container = document.getElementById('programs-container');
+            const visiblePrograms = programs.filter(p => p.visible);
+            
+            if (visiblePrograms.length === 0) {
+                container.innerHTML = `
                     <div class="no-programs">
-                        <i class="fas fa-spinner fa-spin"></i>
-                        <p><span class="ar-text">جاري تحميل البرامج...</span><span class="en-text">Loading programs...</span></p>
+                        <i class="fas fa-calendar-xmark"></i>
+                        <h3><span class="ar-text">لا توجد برامج متاحة حالياً</span><span class="en-text">No programs available</span></h3>
+                        <p><span class="ar-text">تابعنا للإعلان عن البرامج القادمة</span><span class="en-text">Follow us for announcements</span></p>
                     </div>
                 `;
+                return;
             }
+            
+            container.innerHTML = visiblePrograms.map(program => `
+                <div class="program-card" data-aos="fade-up">
+                    <div class="program-image">
+                        <img src="${program.image || 'images/program-default.jpg'}" alt="${program.title_ar}" onerror="this.src='images/program-default.jpg'">
+                        <span class="program-badge ${program.registration_open ? '' : 'closed'}">
+                            <span class="ar-text">${program.registration_open ? 'التسجيل مفتوح' : 'التسجيل مغلق'}</span>
+                            <span class="en-text">${program.registration_open ? 'Open' : 'Closed'}</span>
+                        </span>
+                    </div>
+                    <div class="program-content">
+                        <h3>
+                            <span class="ar-text">${program.title_ar}</span>
+                            <span class="en-text">${program.title_en}</span>
+                        </h3>
+                        <div class="program-meta">
+                            <span><i class="fas fa-calendar"></i> ${program.start_date} - ${program.end_date}</span>
+                            <span><i class="fas fa-clock"></i> <span class="ar-text">${program.duration_ar}</span><span class="en-text">${program.duration_en}</span></span>
+                            <span><i class="fas fa-users"></i> <span class="ar-text">عدد محدود</span><span class="en-text">Limited seats</span></span>
+                        </div>
+                        <div class="program-price">
+                            $${Number(program.price).toLocaleString()} <span>/ <span class="ar-text">أسبوعياً</span><span class="en-text">weekly</span></span>
+                        </div>
+                        <button class="program-btn" ${program.registration_open ? `onclick="location.href='apply.html?program=${program.id}'"` : 'disabled'}>
+                            <span class="ar-text">${program.registration_open ? 'سجّل الآن' : 'التسجيل مغلق'}</span>
+                            <span class="en-text">${program.registration_open ? 'Register' : 'Closed'}</span>
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+            
+            AOS.refresh();
         }
 
         // Load Activities
         async function loadActivities() {
-            try {
-                const activities = await fetchData('activities');
-                const container = document.getElementById('activities-container');
-                
-                const visibleActivities = activities.filter(a => a.visible);
-                
-                if (visibleActivities.length === 0) {
-                    container.innerHTML = '<p style="text-align: center;">لا توجد أنشطة متاحة حالياً</p>';
-                    return;
-                }
-                
-                container.innerHTML = visibleActivities.map(activity => `
-                    <div class="activity-card" data-aos="fade-up">
-                        <div class="activity-image">
-                            <img src="${activity.image}" alt="${activity.title_ar}" onerror="this.src='images/activity-default.jpg'">
-                        </div>
-                        <div class="activity-content">
-                            <h4>
-                                <span class="ar-text">${activity.title_ar}</span>
-                                <span class="en-text">${activity.title_en}</span>
-                            </h4>
-                            <p>
-                                <span class="ar-text">${activity.desc_ar}</span>
-                                <span class="en-text">${activity.desc_en}</span>
-                            </p>
-                        </div>
-                    </div>
-                `).join('');
-                
-                AOS.refresh();
-            } catch (error) {
-                console.error('Error loading activities:', error);
-                loadDefaultActivities();
+            const activities = await fetchData('activities');
+            const container = document.getElementById('activities-container');
+            const visibleActivities = activities.filter(a => a.visible);
+            
+            if (visibleActivities.length === 0) {
+                container.innerHTML = '<p style="text-align: center;">جاري تحميل الأنشطة...</p>';
+                return;
             }
-        }
-        
-        function loadDefaultActivities() {
-            document.getElementById('activities-container').innerHTML = `
-                    <div class="activity-card" data-aos="fade-up">
-                        <div class="activity-image"><img src="images/activity-seerah.jpg" alt="جولات السيرة"></div>
-                        <div class="activity-content">
-                            <h4><span class="ar-text">جولات السيرة النبوية</span><span class="en-text">Prophetic Seerah Tours</span></h4>
-                            <p><span class="ar-text">زيارة المواقع التاريخية مع شرح تفصيلي</span><span class="en-text">Visit historical sites with detailed explanations</span></p>
-                        </div>
+            
+            container.innerHTML = visibleActivities.map(activity => `
+                <div class="activity-card" data-aos="fade-up">
+                    <div class="activity-image">
+                        <img src="${activity.image || 'images/activity-default.jpg'}" alt="${activity.title_ar}" onerror="this.src='images/activity-default.jpg'">
                     </div>
-                    <div class="activity-card" data-aos="fade-up">
-                        <div class="activity-image"><img src="images/activity-horse.jpg" alt="ركوب الخيل"></div>
-                        <div class="activity-content">
-                            <h4><span class="ar-text">ركوب الخيل</span><span class="en-text">Horse Riding</span></h4>
-                            <p><span class="ar-text">تعلم ركوب الخيل العربي الأصيل</span><span class="en-text">Learn to ride authentic Arabian horses</span></p>
-                        </div>
+                    <div class="activity-content">
+                        <h4>
+                            <span class="ar-text">${activity.title_ar}</span>
+                            <span class="en-text">${activity.title_en}</span>
+                        </h4>
+                        <p>
+                            <span class="ar-text">${activity.desc_ar}</span>
+                            <span class="en-text">${activity.desc_en}</span>
+                        </p>
                     </div>
-                    <div class="activity-card" data-aos="fade-up">
-                        <div class="activity-image"><img src="images/activity-archery.jpg" alt="الرماية"></div>
-                        <div class="activity-content">
-                            <h4><span class="ar-text">الرماية</span><span class="en-text">Archery</span></h4>
-                            <p><span class="ar-text">تعلم فن الرماية التقليدية</span><span class="en-text">Learn traditional archery</span></p>
-                        </div>
-                    </div>
-                    <div class="activity-card" data-aos="fade-up">
-                        <div class="activity-image"><img src="images/activity-camping.jpg" alt="التخييم"></div>
-                        <div class="activity-content">
-                            <h4><span class="ar-text">التخييم الصحراوي</span><span class="en-text">Desert Camping</span></h4>
-                            <p><span class="ar-text">ليلة تحت النجوم في الصحراء</span><span class="en-text">A night under the stars in the desert</span></p>
-                        </div>
-                    </div>
-                    <div class="activity-card" data-aos="fade-up">
-                        <div class="activity-image"><img src="images/activity-hiking.jpg" alt="المشي"></div>
-                        <div class="activity-content">
-                            <h4><span class="ar-text">رحلات المشي</span><span class="en-text">Hiking Trips</span></h4>
-                            <p><span class="ar-text">استكشاف الطبيعة حول المدينة</span><span class="en-text">Explore nature around Madinah</span></p>
-                        </div>
-                    </div>
-                    <div class="activity-card" data-aos="fade-up">
-                        <div class="activity-image"><img src="images/activity-dates.jpg" alt="مزارع التمور"></div>
-                        <div class="activity-content">
-                            <h4><span class="ar-text">زيارة مزارع التمور</span><span class="en-text">Date Farm Visits</span></h4>
-                            <p><span class="ar-text">تعرف على أنواع تمور المدينة</span><span class="en-text">Discover Madinah date varieties</span></p>
-                        </div>
-                    </div>
-                    <div class="activity-card" data-aos="fade-up">
-                        <div class="activity-image"><img src="images/activity-coffee.jpg" alt="القهوة السعودية"></div>
-                        <div class="activity-content">
-                            <h4><span class="ar-text">تجربة القهوة السعودية</span><span class="en-text">Saudi Coffee Experience</span></h4>
-                            <p><span class="ar-text">تعلم إعداد القهوة العربية التقليدية</span><span class="en-text">Learn to prepare traditional Arabic coffee</span></p>
-                        </div>
-                    </div>
-                    <div class="activity-card" data-aos="fade-up">
-                        <div class="activity-image"><img src="images/activity-quran.jpg" alt="حلقات القرآن"></div>
-                        <div class="activity-content">
-                            <h4><span class="ar-text">حلقات المسجد النبوي</span><span class="en-text">Prophet's Mosque Circles</span></h4>
-                            <p><span class="ar-text">حضور حلقات العلم في الحرم</span><span class="en-text">Attend knowledge circles in the Haram</span></p>
-                        </div>
-                    </div>
-                `;
+                </div>
+            `).join('');
+            
+            AOS.refresh();
         }
 
-        // Load all data on page load
+        // Load all data
         document.addEventListener('DOMContentLoaded', function() {
             loadServices();
             loadPrograms();
@@ -1807,10 +1446,7 @@
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }
             });
         });
