@@ -1,0 +1,53 @@
+[
+    {
+        "id": "spring2026",
+        "title_ar": "برنامج ربيع 2026",
+        "title_en": "Spring 2026 Program",
+        "start_date": "2026-03-15",
+        "end_date": "2026-04-15",
+        "duration_ar": "4 أسابيع",
+        "duration_en": "4 Weeks",
+        "price": 1200,
+        "total_spots": 15,
+        "spots_left": 10,
+        "image": "images/program-spring.jpg",
+        "registration_open": true,
+        "visible": true,
+        "description_ar": "برنامج الربيع المثالي للمبتدئين والمتوسطين",
+        "description_en": "Perfect spring program for beginners and intermediate learners"
+    },
+    {
+        "id": "summer2026",
+        "title_ar": "برنامج صيف 2026",
+        "title_en": "Summer 2026 Program",
+        "start_date": "2026-06-01",
+        "end_date": "2026-07-30",
+        "duration_ar": "8 أسابيع",
+        "duration_en": "8 Weeks",
+        "price": 1200,
+        "total_spots": 20,
+        "spots_left": 15,
+        "image": "images/program-summer.jpg",
+        "registration_open": true,
+        "visible": true,
+        "description_ar": "برنامج الصيف المكثف لتقدم سريع",
+        "description_en": "Intensive summer program for rapid progress"
+    },
+    {
+        "id": "fall2026",
+        "title_ar": "برنامج خريف 2026",
+        "title_en": "Fall 2026 Program",
+        "start_date": "2026-09-15",
+        "end_date": "2026-12-15",
+        "duration_ar": "12 أسبوع",
+        "duration_en": "12 Weeks",
+        "price": 1200,
+        "total_spots": 15,
+        "spots_left": 15,
+        "image": "images/program-fall.jpg",
+        "registration_open": false,
+        "visible": true,
+        "description_ar": "البرنامج الكامل لإتقان العربية",
+        "description_en": "Complete program for Arabic mastery"
+    }
+]

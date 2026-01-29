@@ -1,0 +1,56 @@
+[
+    {
+        "id": "accommodation",
+        "icon": "fas fa-home",
+        "title_ar": "السكن",
+        "title_en": "Accommodation",
+        "desc_ar": "سكن مريح قريب من المسجد النبوي، نظيف ومجهز بالكامل",
+        "desc_en": "Comfortable accommodation near the Prophet's Mosque, clean and fully equipped",
+        "visible": true
+    },
+    {
+        "id": "meals",
+        "icon": "fas fa-utensils",
+        "title_ar": "الإعاشة",
+        "title_en": "Meals",
+        "desc_ar": "وجبتان يومياً: فطور وعشاء متنوع وصحي",
+        "desc_en": "Two daily meals: varied and healthy breakfast and dinner",
+        "visible": true
+    },
+    {
+        "id": "transport",
+        "icon": "fas fa-car",
+        "title_ar": "النقل",
+        "title_en": "Transportation",
+        "desc_ar": "استقبال من المطار وتنقلات يومية للمعهد والأنشطة",
+        "desc_en": "Airport pickup and daily transportation to institute and activities",
+        "visible": true
+    },
+    {
+        "id": "activities",
+        "icon": "fas fa-calendar-check",
+        "title_ar": "الأنشطة",
+        "title_en": "Activities",
+        "desc_ar": "برنامج أنشطة متنوع أسبوعياً: ثقافية، رياضية، روحانية",
+        "desc_en": "Diverse weekly activities: cultural, sports, spiritual",
+        "visible": true
+    },
+    {
+        "id": "support",
+        "icon": "fas fa-headset",
+        "title_ar": "الدعم",
+        "title_en": "Support",
+        "desc_ar": "دعم ومتابعة على مدار الساعة طوال فترة إقامتك",
+        "desc_en": "24/7 support throughout your stay",
+        "visible": true
+    },
+    {
+        "id": "coordination",
+        "icon": "fas fa-handshake",
+        "title_ar": "التنسيق",
+        "title_en": "Coordination",
+        "desc_ar": "تنسيق مع معاهد اللغة العربية ومساعدة في التسجيل",
+        "desc_en": "Coordination with Arabic institutes and registration assistance",
+        "visible": true
+    }
+]
