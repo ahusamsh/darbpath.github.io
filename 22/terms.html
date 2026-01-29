@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الشروط والأحكام | Terms — درب | Path</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="icon" type="image/png" href="logo.png">
+    
+    <style>
+        :root {
+            --primary-green: #1B4D3E;
+            --primary-gold: #C4A35A;
+            --beige: #F5F0E6;
+            --white: #FFFFFF;
+            --black: #1a1a1a;
+            --gray: #666666;
+            --transition: all 0.3s ease;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body { 
+            font-family: 'Cairo', sans-serif; 
+            background: var(--beige); 
+            min-height: 100vh; 
+            line-height: 1.8; 
+        }
+        
+        body.en { 
+            direction: ltr; 
+            font-family: 'Poppins', sans-serif; 
+        }
+        
+        .ar-text { display: block; } 
+        .en-text { display: none; }
+        body.en .ar-text { display: none; } 
+        body.en .en-text { display: block; }
+
+        .page-header {
+            background: linear-gradient(135deg, var(--primary-green), #2d6b55);
+            padding: 20px 5%;
+            color: var(--white);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: var(--white);
+        }
+
+        .logo img { height: 45px; }
+        .logo-text { font-size: 1.4rem; font-weight: 700; }
+
+        .header-actions { display: flex; gap: 15px; align-items: center; }
+
+        .lang-toggle {
+            display: flex;
+            gap: 5px;
+            background: rgba(255,255,255,0.1);
+            padding: 4px;
+            border-radius: 20px;
+        }
+
+        .lang-btn {
+            padding: 6px 14px;
+            border: none;
+            background: transparent;
+            color: var(--white);
+            cursor: pointer;
+            border-radius: 16px;
+            font-weight: 600;
+            transition: var(--transition);
+            font-size: 13px;
+        }
+
+        .lang-btn.active {
+            background: var(--white);
+            color: var(--primary-green);
+        }
+
+        .back-btn {
+            color: var(--white);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .main-content {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .terms-container {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 50px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+
+        .terms-container h1 {
+            color: var(--primary-green);
+            margin-bottom: 30px;
+            font-size: 2rem;
+            text-align: center;
+        }
+
+        .terms-container h2 {
+            color: var(--primary-green);
+            margin: 30px 0 15px;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .terms-container h2 i { color: var(--primary-gold); }
+
+        .terms-container p {
+            color: var(--gray);
+            margin-bottom: 15px;
+        }
+
+        .terms-container ul {
+            color: var(--gray);
+            margin: 15px 0;
+            padding-right: 25px;
+        }
+
+        body.en .terms-container ul { padding-right: 0; padding-left: 25px; }
+
+        .terms-container li { margin-bottom: 8px; }
+
+        .highlight-box {
+            background: var(--beige);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-right: 4px solid var(--primary-gold);
+        }
+
+        body.en .highlight-box {
+            border-right: none;
+            border-left: 4px solid var(--primary-gold);
+        }
+
+        .contact-info {
+            background: var(--primary-green);
+            color: var(--white);
+            padding: 25px;
+            border-radius: 15px;
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .contact-info a {
+            color: var(--primary-gold);
+            text-decoration: none;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 25px;
+            color: var(--gray);
+        }
+
+        .footer a { color: var(--primary-green); text-decoration: none; }
+
+        @media (max-width: 768px) {
+            .terms-container { padding: 30px 20px; }
+        }
+    </style>
+</head>
+<body>
+    <header class="page-header">
+        <div class="header-content">
+            <a href="index.html" class="logo">
+                <img src="logo.png" alt="درب | Path">
+                <span class="logo-text">درب | Path</span>
+            </a>
+            <div class="header-actions">
+                <div class="lang-toggle">
+                    <button class="lang-btn active" onclick="setLanguage('ar')">عربي</button>
+                    <button class="lang-btn" onclick="setLanguage('en')">EN</button>
+                </div>
+                <a href="index.html" class="back-btn">
+                    <i class="fas fa-home"></i>
+                    <span class="ar-text">الرئيسية</span>
+                    <span class="en-text">Home</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="terms-container">
+            <h1>
+                <span class="ar-text">الشروط والأحكام</span>
+                <span class="en-text">Terms and Conditions</span>
+            </h1>
+
+            <!-- مقدمة -->
+            <div class="ar-text">
+                <p>مرحباً بك في برنامج درب لتعليم اللغة العربية. بتقديم طلبك، فإنك توافق على الشروط والأحكام التالية:</p>
+            </div>
+            <div class="en-text">
+                <p>Welcome to the Path Arabic Language Program. By submitting your application, you agree to the following terms and conditions:</p>
+            </div>
+
+            <!-- الخدمات المشمولة -->
+            <h2><i class="fas fa-check-circle"></i> <span class="ar-text">الخدمات المشمولة</span><span class="en-text">Included Services</span></h2>
+            <div class="ar-text">
+                <p>يشمل سعر البرنامج الخدمات التالية:</p>
+                <ul>
+                    <li>السكن المشترك (خيارات أخرى متاحة برسوم إضافية)</li>
+                    <li>الوجبات اليومية</li>
+                    <li>الاستقبال من مطار المدينة المنورة</li>
+                    <li>المواصلات اليومية خلال البرنامج</li>
+                    <li>الأنشطة الأسبوعية والجولات</li>
+                    <li>الدعم والمتابعة</li>
+                </ul>
+            </div>
+            <div class="en-text">
+                <p>The program price includes:</p>
+                <ul>
+                    <li>Shared accommodation (other options available at extra cost)</li>
+                    <li>Daily meals</li>
+                    <li>Airport pickup from Madinah airport</li>
+                    <li>Daily transportation during the program</li>
+                    <li>Weekly activities and tours</li>
+                    <li>Support and follow-up</li>
+                </ul>
+            </div>
+
+            <!-- الخدمات غير المشمولة -->
+            <h2><i class="fas fa-times-circle"></i> <span class="ar-text">غير مشمول في السعر</span><span class="en-text">Not Included</span></h2>
+            <div class="ar-text">
+                <ul>
+                    <li>رسوم المعهد الدراسية</li>
+                    <li>تذاكر الطيران</li>
+                    <li>تأشيرة الدخول</li>
+                    <li>المصاريف الشخصية</li>
+                    <li>التأمين الصحي</li>
+                </ul>
+            </div>
+            <div class="en-text">
+                <ul>
+                    <li>Institute tuition fees</li>
+                    <li>Flight tickets</li>
+                    <li>Entry visa</li>
+                    <li>Personal expenses</li>
+                    <li>Health insurance</li>
+                </ul>
+            </div>
+
+            <!-- متطلبات القبول -->
+            <h2><i class="fas fa-user-check"></i> <span class="ar-text">متطلبات القبول</span><span class="en-text">Admission Requirements</span></h2>
+            <div class="ar-text">
+                <ul>
+                    <li>أن يكون المتقدم مسلماً</li>
+                    <li>جواز سفر ساري المفعول</li>
+                    <li>القدرة على الحصول على تأشيرة سعودية</li>
+                    <li>التفرغ الكامل خلال فترة البرنامج</li>
+                    <li>الالتزام بقواعد وأنظمة البرنامج</li>
+                </ul>
+            </div>
+            <div class="en-text">
+                <ul>
+                    <li>Applicant must be Muslim</li>
+                    <li>Valid passport</li>
+                    <li>Ability to obtain a Saudi visa</li>
+                    <li>Full availability during the program</li>
+                    <li>Commitment to program rules and regulations</li>
+                </ul>
+            </div>
+
+            <!-- قواعد السلوك -->
+            <h2><i class="fas fa-balance-scale"></i> <span class="ar-text">قواعد السلوك</span><span class="en-text">Code of Conduct</span></h2>
+            <div class="ar-text">
+                <p>يُتوقع من جميع المشاركين:</p>
+                <ul>
+                    <li>احترام القوانين والأنظمة السعودية</li>
+                    <li>الالتزام بمواعيد البرنامج والأنشطة</li>
+                    <li>احترام الآخرين والتعامل بأخلاق إسلامية</li>
+                    <li>المحافظة على نظافة السكن والممتلكات</li>
+                    <li>عدم التغيب عن الدروس بدون عذر</li>
+                </ul>
+            </div>
+            <div class="en-text">
+                <p>All participants are expected to:</p>
+                <ul>
+                    <li>Respect Saudi laws and regulations</li>
+                    <li>Adhere to program and activity schedules</li>
+                    <li>Respect others and maintain Islamic manners</li>
+                    <li>Maintain cleanliness of accommodation and property</li>
+                    <li>Not miss classes without valid excuse</li>
+                </ul>
+            </div>
+
+            <!-- المسؤولية -->
+            <h2><i class="fas fa-shield-alt"></i> <span class="ar-text">إخلاء المسؤولية</span><span class="en-text">Disclaimer</span></h2>
+            <div class="ar-text">
+                <p>برنامج درب غير مسؤول عن:</p>
+                <ul>
+                    <li>أي إصابات أو حوادث خارج نطاق أنشطة البرنامج</li>
+                    <li>فقدان أو سرقة الممتلكات الشخصية</li>
+                    <li>رفض التأشيرة من قبل السلطات السعودية</li>
+                    <li>إلغاء أو تأخير الرحلات الجوية</li>
+                    <li>أي ظروف قاهرة خارجة عن السيطرة</li>
+                </ul>
+            </div>
+            <div class="en-text">
+                <p>Path program is not responsible for:</p>
+                <ul>
+                    <li>Any injuries or accidents outside program activities</li>
+                    <li>Loss or theft of personal belongings</li>
+                    <li>Visa rejection by Saudi authorities</li>
+                    <li>Flight cancellations or delays</li>
+                    <li>Any force majeure circumstances</li>
+                </ul>
+            </div>
+
+            <div class="highlight-box">
+                <div class="ar-text">
+                    <strong>ملاحظة مهمة:</strong> بتقديم طلبك، فإنك تقر بأنك قرأت وفهمت جميع الشروط والأحكام المذكورة أعلاه وتوافق عليها.
+                </div>
+                <div class="en-text">
+                    <strong>Important Note:</strong> By submitting your application, you acknowledge that you have read, understood, and agree to all the terms and conditions stated above.
+                </div>
+            </div>
+
+            <!-- التواصل -->
+            <div class="contact-info">
+                <p>
+                    <span class="ar-text">للاستفسارات والتواصل</span>
+                    <span class="en-text">For inquiries and contact</span>
+                </p>
+                <p>
+                    <a href="mailto:info@darbpath.com">info@darbpath.com</a> | 
+                    <a href="https://wa.me/13187632439">WhatsApp: +1 (318) 763-2439</a>
+                </p>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>© 2026 <a href="index.html">درب | Path</a></p>
+    </footer>
+
+    <script>
+        function setLanguage(lang) {
+            const body = document.body;
+            const buttons = document.querySelectorAll('.lang-btn');
+            
+            if (lang === 'en') {
+                body.classList.add('en');
+                body.setAttribute('dir', 'ltr');
+                buttons[0].classList.remove('active');
+                buttons[1].classList.add('active');
+            } else {
+                body.classList.remove('en');
+                body.setAttribute('dir', 'rtl');
+                buttons[0].classList.add('active');
+                buttons[1].classList.remove('active');
+            }
+            localStorage.setItem('path-lang', lang);
+        }
+
+        const savedLang = localStorage.getItem('path-lang');
+        if (savedLang) setLanguage(savedLang);
+    </script>
+</body>
+</html>
